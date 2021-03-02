@@ -1,7 +1,8 @@
 import { IQueryBaseUpdate } from '../../../entities';
 
 export default interface IQueryUpdate extends IQueryBaseUpdate {
-  First_address: string;
+ address:{ First_address: string;
   Second_address: string;
   Pincode: number;
+ }
 }

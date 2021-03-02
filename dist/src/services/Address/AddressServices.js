@@ -14,17 +14,27 @@ class AddressServices {
     constructor() {
         this._AddressRepository = new repository_1.default();
     }
+    create(query) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { First_address, Second_address, Pincode, } = query;
+            return yield this._AddressRepository.create({
+                First_address, Second_address, Pincode,
+            });
+        });
+    }
     update(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { First_address, Second_address, Pincode, originalId } = query;
+            console.log('update(AddressServices)');
+            const { address: { First_address, Second_address, Pincode }, originalId } = query;
             return this._AddressRepository.update({
-                First_address,
-                Second_address,
-                Pincode,
+                address: { First_address,
+                    Second_address,
+                    Pincode },
                 originalId,
             });
         });
     }
+    ;
 }
 exports.default = AddressServices;
 //# sourceMappingURL=AddressServices.js.map

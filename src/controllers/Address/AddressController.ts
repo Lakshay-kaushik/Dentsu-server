@@ -20,7 +20,23 @@ class AddressController {
   private constructor() {
     this._AddressService = new AddressServices();
   }
-
+public async create(req, res, next) {
+    try {
+  const result = await AddressController.getInstance()._AddressService.create({
+    address: {
+      First_address:'',
+      Second_address:'',
+      Pincode:'',
+    }
+  });
+  if (!result) {
+    return next(SystemResponse.badRequestError('Unable to create', ''));
+  }
+  return res.send(SystemResponse.success('address created', result));
+} catch (err) {
+  return next(err);
+}
+}
   /**sss
    * Update the home
    * @param id {string} - The id of the home.
@@ -31,7 +47,7 @@ class AddressController {
    */
   public async update(req, res, next) {
     try {
-      const { First_address, Second_address, Pincode } = req.body;
+      const { address:{First_address, Second_address, Pincode} } = req.body;
       const { id } = req.params;
       const result = await AddressController.getInstance()._AddressService.update({
         originalId: id,
@@ -41,7 +57,8 @@ class AddressController {
           Pincode,
         }
       });
-      console.log('inside==>',result);
+      console.log('inside--->',result);
+      
       if (!result) {
         return next(SystemResponse.badRequestError('Unable to update', ''));
       }
@@ -50,7 +67,7 @@ class AddressController {
       return next(err);
     }
   }
-
+  
   /**
    * Delete the home
    * @param id {string} The id of the home

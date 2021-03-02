@@ -119,7 +119,7 @@ exports.addressSchema.method({});
  */
 exports.addressSchema.statics = {};
 /**
- * @typedef Home
+ * @typedef Address
  */
 exports.AddressModel = mongoose.model('address', exports.addressSchema);
 //# sourceMappingURL=model.js.map

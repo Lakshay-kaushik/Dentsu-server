@@ -33,5 +33,7 @@ const router = express_1.Router();
  */
 router.route('/:id')
     .put(utilities_1.validationHandler(validation_1.default.update), AddressController_1.default.update);
+router.route('/')
+    .post(utilities_1.validationHandler(''), AddressController_1.default.create);
 exports.default = router;
 //# sourceMappingURL=route.js.map

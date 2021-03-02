@@ -63,7 +63,7 @@ const router = Router();
  */
 router.route('/')
   .post(
-    validationHandler(''),
+    validationHandler(validation.create),
     UserController.create,
   );
 

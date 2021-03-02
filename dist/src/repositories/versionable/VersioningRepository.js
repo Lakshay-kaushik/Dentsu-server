@@ -37,7 +37,7 @@ class VersioningRepository {
     update(options) {
         return __awaiter(this, void 0, void 0, function* () {
             const now = new Date();
-            console.debug('Searching for previous valid object...');
+            console.debug('Searching for previous valid object...', options.originalId);
             const previous = yield this.getById(options.originalId);
             console.debug('PREVIOUS::::::::', JSON.stringify(previous));
             if (previous) {

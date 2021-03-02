@@ -5,7 +5,7 @@ class AddressSchema extends VersionableSchema_1.default {
     constructor(options) {
         const baseSchema = {
             userId: {
-                required: true,
+                required: false,
                 type: String
             },
             address: {

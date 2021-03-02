@@ -2,6 +2,6 @@
 
 import HomeController from './home/HomeController';
 import UserController from './Users/UserController';
-// import AddressController from './Address/AddressController';
+import AddressController from './Address/AddressController';
 
-export { HomeController, UserController };
+export { HomeController, UserController, AddressController };

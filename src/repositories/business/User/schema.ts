@@ -19,19 +19,21 @@ export default class UserSchema extends VersionableSchema {
         required: true,
         type: Number,
       },
-
-      // First_address: {
-      //   required: false,
-      //   type: String,
-      // },
-      // Second_address: {
-      //   required: false,
-      //   type: String,
-      // },
-      // Pincode: {
-      //   required: false,
-      //   type: Number
-      // }
+     address:{
+      First_address: {
+        required: false,
+        type: String,
+      },
+      Second_address: {
+        required: false,
+        type: String,
+      },
+      Pincode: {
+        required: false,
+        type: Number
+      }
+     }
+      
 
     };
 

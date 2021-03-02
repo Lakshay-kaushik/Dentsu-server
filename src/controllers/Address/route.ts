@@ -38,4 +38,11 @@ router.route('/:id')
     AddressController.update,
   );
 
+  
+  router.route('/')
+  .post(
+    validationHandler(''),
+    AddressController.create,
+  );
+
 export default router;

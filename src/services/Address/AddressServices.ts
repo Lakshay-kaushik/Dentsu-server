@@ -8,16 +8,23 @@ class AddressServices {
     public constructor() {
       this._AddressRepository = new AddressRepository();
     }
-
+    public async create(query): Promise<IAddress> {
+      const { First_address, Second_address, Pincode,} = query;
+          return await this._AddressRepository.create({
+            First_address, Second_address, Pincode,
+          });
+      }
+      
     public async update(query): Promise<IAddress> {
-        const { First_address, Second_address, Pincode, originalId } = query;
+      console.log('update(AddressServices)')
+        const { address:{First_address, Second_address, Pincode}, originalId } = query;
         return this._AddressRepository.update({
-          First_address,
+          address:{First_address,
           Second_address,
-          Pincode,
+          Pincode},
           originalId,
         });
-    }
-    
+    };
+  
 }
 export default AddressServices;

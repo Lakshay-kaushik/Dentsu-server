@@ -125,7 +125,7 @@ addressSchema.method({});
 addressSchema.statics = {};
 
 /**
- * @typedef Home
+ * @typedef Address
  */
 
 export const AddressModel: mongoose.Model<IAddressModel> = mongoose.model<IAddressModel>

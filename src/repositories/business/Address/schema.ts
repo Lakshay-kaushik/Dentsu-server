@@ -3,7 +3,7 @@ export default class AddressSchema extends VersionableSchema {
   constructor(options: any) {
     const baseSchema = {
       userId: {
-        required: true,
+        required: false,
         type: String
       },
       address:{

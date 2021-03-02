@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
 const utilities_1 = require("../../libs/utilities");
 const UserController_1 = require("./UserController");
+const validation_1 = require("./validation");
 const router = express_1.Router();
 /**
  * @swagger
@@ -60,7 +61,7 @@ const router = express_1.Router();
  *                example: 9540953776
  */
 router.route('/')
-    .post(utilities_1.validationHandler(''), UserController_1.default.create);
+    .post(utilities_1.validationHandler(validation_1.default.create), UserController_1.default.create);
 // /**
 //  * @swagger
 //  * /homes:

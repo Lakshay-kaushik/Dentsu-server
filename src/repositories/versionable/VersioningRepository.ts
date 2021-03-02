@@ -39,11 +39,11 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
 
     const now = new Date();
 
-    console.debug('Searching for previous valid object...');
+    console.debug('Searching for previous valid object...', options.originalId);
     const previous = await this.getById(options.originalId);
     console.debug('PREVIOUS::::::::', JSON.stringify(previous));
 
-    if ( previous ) {
+    if (previous) {
       console.debug('Invalidating previous valid object...');
       await this.invalidate(options.originalId);
     } else {
@@ -62,7 +62,7 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
     return await model.save();
 
   }
-  protected getAll(query: any = {} , options: any = {}): DocumentQuery<D[], D> {
+  protected getAll(query: any = {}, options: any = {}): DocumentQuery<D[], D> {
     options.limit = options.limit || 0;
     options.skip = options.skip || 0;
     query.deletedAt = undefined;
@@ -88,7 +88,7 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
   protected async remove(id: string): Promise<D> {
     const result = await this.getById(id);
     if (result) {
-    return await this.invalidate(id);
+      return await this.invalidate(id);
     }
     return null;
   }

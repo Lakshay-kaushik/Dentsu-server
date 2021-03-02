@@ -23,6 +23,26 @@ class AddressController {
         }
         return AddressController.instance;
     }
+    create(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const result = yield AddressController.getInstance()._AddressService.create({
+                    address: {
+                        First_address: '',
+                        Second_address: '',
+                        Pincode: '',
+                    }
+                });
+                if (!result) {
+                    return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));
+                }
+                return res.send(utilities_1.SystemResponse.success('address created', result));
+            }
+            catch (err) {
+                return next(err);
+            }
+        });
+    }
     /**sss
      * Update the home
      * @param id {string} - The id of the home.
@@ -34,7 +54,7 @@ class AddressController {
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { First_address, Second_address, Pincode } = req.body;
+                const { address: { First_address, Second_address, Pincode } } = req.body;
                 const { id } = req.params;
                 const result = yield AddressController.getInstance()._AddressService.update({
                     originalId: id,
@@ -44,7 +64,7 @@ class AddressController {
                         Pincode,
                     }
                 });
-                console.log('inside==>', result);
+                console.log('inside--->', result);
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to update', ''));
                 }

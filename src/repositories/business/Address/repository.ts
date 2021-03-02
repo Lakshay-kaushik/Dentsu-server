@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import { Nullable } from '../../../libs/Nullable';
 import VersioningRepository from '../../versionable/VersioningRepository';
-import { IQueryGet, IQueryUpdate } from '../home/entities';
+import { IQueryCreate,IQueryGet, IQueryUpdate } from '../home/entities';
 import IAddressModel from './IModel';
 import { AddressModel } from './model';
 
@@ -23,6 +23,11 @@ export default class AddressRepository extends VersioningRepository<IAddressMode
     return super.getById(query.id);
   }
 
+
+  public async create(options: IQueryCreate): Promise<IAddressModel> {
+    console.debug('AddressRepository - Create: ');
+    return super.create(options);
+  }
 
   /**
    * Update new home

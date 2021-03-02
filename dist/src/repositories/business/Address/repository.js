@@ -29,6 +29,15 @@ class AddressRepository extends VersioningRepository_1.default {
             return _super.getById.call(this, query.id);
         });
     }
+    create(options) {
+        const _super = Object.create(null, {
+            create: { get: () => super.create }
+        });
+        return __awaiter(this, void 0, void 0, function* () {
+            console.debug('AddressRepository - Create: ');
+            return _super.create.call(this, options);
+        });
+    }
     /**
      * Update new home
      * @property {string} First_address - The First address of record.
