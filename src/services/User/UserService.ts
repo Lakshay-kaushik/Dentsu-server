@@ -31,9 +31,9 @@ class UserServices {
   }
 
   public async createAddress(query): Promise<IAddress> {
-    const { First_address, Second_address, Pincode } = query;
+    const { First_address, Second_address, Pincode, userId } = query;
     return await this._AddressRepository.create({
-      First_address, Second_address, Pincode
+      First_address, Second_address, Pincode, userId
     })
   }
 

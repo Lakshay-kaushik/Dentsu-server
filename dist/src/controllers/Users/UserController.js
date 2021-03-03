@@ -41,17 +41,22 @@ class UserController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const { First_name, Last_name, email, mobile_number, address: { First_address, Second_address, Pincode } } = req.body;
-                let result;
+                let result, addResult;
                 if (email !== mobile_number) {
                     result = yield UserController.getInstance()._UserService.createUser({
                         First_name, Last_name, email, mobile_number,
                     });
-                    result = yield UserController.getInstance()._UserService.createAddress({
-                        address: {
-                            First_address, Second_address, Pincode
-                        }
-                    });
+                    console.log('USER CREATED ', result.originalId);
+                    if (result && result.originalId) {
+                        addResult = yield UserController.getInstance()._UserService.createAddress({
+                            address: {
+                                First_address, Second_address, Pincode,
+                            },
+                            userId: result.originalId
+                        });
+                    }
                 }
+                userId: result.id;
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));
                 }

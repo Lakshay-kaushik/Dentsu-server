@@ -62,7 +62,7 @@ class AddressController {
                         First_address,
                         Second_address,
                         Pincode,
-                    }
+                    },
                 });
                 console.log('inside--->', result);
                 if (!result) {

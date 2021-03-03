@@ -55,7 +55,7 @@ public async create(req, res, next) {
           First_address,
           Second_address,
           Pincode,
-        }
+        },
       });
       console.log('inside--->',result);
       
