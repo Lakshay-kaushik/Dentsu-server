@@ -6,7 +6,7 @@ export default class AddressSchema extends VersionableSchema {
         required: false,
         type: String
       },
-      address:{
+      
         First_address: {
         required: false,
         type: String,
@@ -19,7 +19,7 @@ export default class AddressSchema extends VersionableSchema {
         required: false,
         type: Number
       }
-    }
+    
 
     };
 

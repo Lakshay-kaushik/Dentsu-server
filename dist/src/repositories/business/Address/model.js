@@ -121,5 +121,5 @@ exports.addressSchema.statics = {};
 /**
  * @typedef Address
  */
-exports.AddressModel = mongoose.model('address', exports.addressSchema);
+exports.AddressModel = mongoose.model('Addresses', exports.addressSchema);
 //# sourceMappingURL=model.js.map

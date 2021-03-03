@@ -27,11 +27,9 @@ class AddressController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const result = yield AddressController.getInstance()._AddressService.create({
-                    address: {
-                        First_address: '',
-                        Second_address: '',
-                        Pincode: '',
-                    }
+                    First_address: '',
+                    Second_address: '',
+                    Pincode: '',
                 });
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));
@@ -54,15 +52,14 @@ class AddressController {
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { address: { First_address, Second_address, Pincode } } = req.body;
+                const { First_address, Second_address, Pincode } = req.body;
                 const { id } = req.params;
+                console.log('id', id);
                 const result = yield AddressController.getInstance()._AddressService.update({
                     originalId: id,
-                    address: {
-                        First_address,
-                        Second_address,
-                        Pincode,
-                    },
+                    First_address,
+                    Second_address,
+                    Pincode,
                 });
                 console.log('inside--->', result);
                 if (!result) {

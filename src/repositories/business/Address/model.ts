@@ -130,6 +130,6 @@ addressSchema.statics = {};
 
 export const AddressModel: mongoose.Model<IAddressModel> = mongoose.model<IAddressModel>
   (
-    'address',
+    'Addresses',
     addressSchema,
   );

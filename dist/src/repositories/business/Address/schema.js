@@ -8,19 +8,17 @@ class AddressSchema extends VersionableSchema_1.default {
                 required: false,
                 type: String
             },
-            address: {
-                First_address: {
-                    required: false,
-                    type: String,
-                },
-                Second_address: {
-                    required: false,
-                    type: String,
-                },
-                Pincode: {
-                    required: false,
-                    type: Number
-                }
+            First_address: {
+                required: false,
+                type: String,
+            },
+            Second_address: {
+                required: false,
+                type: String,
+            },
+            Pincode: {
+                required: false,
+                type: Number
             }
         };
         super(baseSchema, options);

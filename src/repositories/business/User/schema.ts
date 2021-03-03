@@ -2,7 +2,6 @@ import VersionableSchema from '../../versionable/VersionableSchema';
 export default class UserSchema extends VersionableSchema {
   constructor(options: any) {
     const baseSchema = {
-
       First_name: {
         required: true,
         type: String,
@@ -19,7 +18,7 @@ export default class UserSchema extends VersionableSchema {
         required: true,
         type: Number,
       },
-     address:{
+     
       First_address: {
         required: false,
         type: String,
@@ -32,7 +31,6 @@ export default class UserSchema extends VersionableSchema {
         required: false,
         type: Number
       }
-     }
       
 
     };

@@ -20,19 +20,17 @@ class UserSchema extends VersionableSchema_1.default {
                 required: true,
                 type: Number,
             },
-            address: {
-                First_address: {
-                    required: false,
-                    type: String,
-                },
-                Second_address: {
-                    required: false,
-                    type: String,
-                },
-                Pincode: {
-                    required: false,
-                    type: Number
-                }
+            First_address: {
+                required: false,
+                type: String,
+            },
+            Second_address: {
+                required: false,
+                type: String,
+            },
+            Pincode: {
+                required: false,
+                type: Number
             }
         };
         super(baseSchema, options);

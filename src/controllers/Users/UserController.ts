@@ -39,9 +39,9 @@ class UserController {
    */
   public async create(req, res, next) {
     try {
-      const { First_name, Last_name, email, mobile_number, address: {
+      const { First_name, Last_name, email, mobile_number,
         First_address, Second_address, Pincode
-      } } = req.body;
+      } = req.body;
       let result, addResult;
       if (email !== mobile_number) {
         result = await UserController.getInstance()._UserService.createUser({
@@ -50,9 +50,9 @@ class UserController {
         console.log('USER CREATED ',result.originalId );
         if(result && result.originalId){
           addResult = await UserController.getInstance()._UserService.createAddress({
-            address: {
+           
               First_address, Second_address, Pincode,
-            },
+            
             userId: result.originalId
           })
         }

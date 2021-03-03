@@ -37,9 +37,9 @@ class HomeService {
         return __awaiter(this, void 0, void 0, function* () {
             const { First_address, Second_address, Pincode, originalId } = query;
             return this._homeRepository.update({
-                address: { First_address,
-                    Second_address,
-                    Pincode },
+                First_address,
+                Second_address,
+                Pincode,
                 originalId,
             });
         });

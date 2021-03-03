@@ -76,9 +76,9 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
     return this.modelType.findOne(query);
   }
 
-  protected getById(id: string): DocumentQuery<D | null, D> {
-    console.debug(id);
-    return this.modelType.findOne({ originalId: id, deletedAt: null });
+  protected getById(originalId: string): any {
+    console.debug(originalId);
+    return this.modelType.findOne({ originalId });
   }
 
   protected getByIds(ids: string[]): DocumentQuery<D[], D> {
