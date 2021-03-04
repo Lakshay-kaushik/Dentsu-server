@@ -91,12 +91,11 @@ class HomeController {
    */
   public async update(req, res, next) {
     try {
-      const { id, type, First_address, Second_address, Pincode } = req.body;
+      const { id, First_address, Second_address, Pincode } = req.body;
       const result = await HomeController.getInstance()._homeService.update({
         originalId: id, First_address,
         Second_address,
         Pincode,
-        type,
       });
       if (!result) {
         return next(SystemResponse.badRequestError('Unable to update', ''));

@@ -41,11 +41,11 @@ class VersioningRepository {
             const previous = yield this.getById(options.originalId);
             console.debug('PREVIOUS::::::::', JSON.stringify(previous));
             console.log('11111', previous.type);
-            console.log('3333', options.type);
-            const addressType = previous.type;
-            console.log('2222', (options.type == addressType));
-            if (options.type == addressType) {
-                console.log('options is= = ', options.type);
+            console.log('3333', options.originalId);
+            const addressType = previous.originalId;
+            console.log('2222', (options.originalId == addressType));
+            if (options.originalId == addressType) {
+                console.log('options is= = ', options.originalId);
                 if (previous) {
                     console.debug('Invalidating previous valid object...');
                     yield this.invalidate(options.originalId);

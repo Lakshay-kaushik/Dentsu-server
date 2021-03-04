@@ -23,6 +23,7 @@ export default Object.freeze({
           type: 'Int',
           required: 'false',
         },
+        
 },
 update: {
     id: {

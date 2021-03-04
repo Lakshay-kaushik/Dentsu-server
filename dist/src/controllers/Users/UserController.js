@@ -40,7 +40,7 @@ class UserController {
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { First_name, Last_name, email, mobile_number, First_address, Second_address, Pincode, type } = req.body;
+                const { First_name, Last_name, email, mobile_number, First_address, Second_address, Pincode, } = req.body;
                 let result;
                 if (email !== mobile_number) {
                     result = yield UserController.getInstance()._UserService.createUser({
@@ -49,7 +49,7 @@ class UserController {
                     console.log('USER CREATED ', result.originalId);
                     if (result && result.originalId) {
                         yield UserController.getInstance()._UserService.createAddress({
-                            type, First_address, Second_address, Pincode,
+                            First_address, Second_address, Pincode,
                             userId: result.originalId
                         });
                     }

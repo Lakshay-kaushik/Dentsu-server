@@ -2,7 +2,7 @@ import { isValidObjectId } from '../../libs/utilities';
 
 export default Object.freeze({
   // POST /api/user/create
-update: {
+  update: {
     id: {
       custom: {
         options: (id: string) => {
@@ -12,25 +12,26 @@ update: {
       errorMessage: 'Bad ID format',
       in: ['params'],
     },
-    address:{
-    First_address: {
-      errorMessage: 'address is wrong!',
-      in: ['body'],
-      isLength: {
-        errorMessage: 'Name should be at least 25 chars long',
-        // Multiple options would be expressed as an array
-        options: { min: 25 },
+    address: {
+      First_address: {
+        errorMessage: 'address is wrong!',
+        in: ['body'],
+        isLength: {
+          errorMessage: 'Name should be at least 25 chars long',
+          // Multiple options would be expressed as an array
+          options: { min: 25 },
+        },
       },
-    },
-    Second_address:{
-      required: false,
-      in: ['body'], 
-    },
-    Pincode:{
-    required: false,
-    in: ['body'], 
+      Second_address: {
+        required: false,
+        in: ['body'],
+      },
+      Pincode: {
+        required: false,
+        in: ['body'],
+      },
+      
     }
-  }
   },
   delete: {
     id: {

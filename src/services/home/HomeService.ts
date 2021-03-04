@@ -27,13 +27,12 @@ class HomeService {
   }
 
   public async update(query): Promise<IHome> {
-    const { type, First_address, Second_address, Pincode, originalId } = query;
+    const { First_address, Second_address, Pincode, originalId } = query;
     return this._homeRepository.update({
      First_address,
       Second_address,
       Pincode,
       originalId,
-      type,
     });
   }
 

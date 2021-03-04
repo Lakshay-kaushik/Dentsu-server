@@ -61,7 +61,6 @@ class AddressController {
                     First_address,
                     Second_address,
                     Pincode,
-                    type
                 });
                 // console.log('inside--->', result);
                 if (!result) {

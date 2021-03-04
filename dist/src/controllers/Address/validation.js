@@ -30,7 +30,7 @@ exports.default = Object.freeze({
             Pincode: {
                 required: false,
                 in: ['body'],
-            }
+            },
         }
     },
     delete: {
