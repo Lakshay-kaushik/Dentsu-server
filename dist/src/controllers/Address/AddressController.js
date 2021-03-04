@@ -27,6 +27,7 @@ class AddressController {
         return __awaiter(this, void 0, void 0, function* () {
             try {
                 const result = yield AddressController.getInstance()._AddressService.create({
+                    type: '',
                     First_address: '',
                     Second_address: '',
                     Pincode: '',
@@ -52,7 +53,7 @@ class AddressController {
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { First_address, Second_address, Pincode } = req.body;
+                const { type, First_address, Second_address, Pincode } = req.body;
                 const { id } = req.params;
                 console.log('id', id);
                 const result = yield AddressController.getInstance()._AddressService.update({
@@ -60,8 +61,9 @@ class AddressController {
                     First_address,
                     Second_address,
                     Pincode,
+                    type
                 });
-                console.log('inside--->', result);
+                // console.log('inside--->', result);
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to update', ''));
                 }

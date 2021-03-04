@@ -99,11 +99,12 @@ class HomeController {
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id, First_address, Second_address, Pincode } = req.body;
+                const { id, type, First_address, Second_address, Pincode } = req.body;
                 const result = yield HomeController.getInstance()._homeService.update({
                     originalId: id, First_address,
                     Second_address,
                     Pincode,
+                    type,
                 });
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to update', ''));

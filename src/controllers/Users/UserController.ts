@@ -40,25 +40,25 @@ class UserController {
   public async create(req, res, next) {
     try {
       const { First_name, Last_name, email, mobile_number,
-        First_address, Second_address, Pincode
+        First_address, Second_address, Pincode, type
       } = req.body;
-      let result, addResult;
+      let result;
       if (email !== mobile_number) {
         result = await UserController.getInstance()._UserService.createUser({
           First_name, Last_name, email, mobile_number,
         });
-        console.log('USER CREATED ',result.originalId );
-        if(result && result.originalId){
-          addResult = await UserController.getInstance()._UserService.createAddress({
-           
-              First_address, Second_address, Pincode,
-            
+        console.log('USER CREATED ', result.originalId);
+        if (result && result.originalId) {
+          await UserController.getInstance()._UserService.createAddress({
+
+           type, First_address, Second_address, Pincode,
+
             userId: result.originalId
           })
         }
-        
+
       }
-      userId: result.id;
+          userId: result.id;
       if (!result) {
         return next(SystemResponse.badRequestError('Unable to create', ''));
       }

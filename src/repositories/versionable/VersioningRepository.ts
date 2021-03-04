@@ -1,5 +1,8 @@
+import { response } from 'express';
 import * as mongoose from 'mongoose';
 import { DocumentQuery } from 'mongoose';
+import { type } from 'os';
+// import Database from 'src/libs/Database';
 import { IQueryBaseCreate, IQueryBaseDelete, IQueryBaseGet, IQueryBaseList, IQueryBaseUpdate } from '../entities';
 import IVersionableDocument from './IVersionableDocument';
 
@@ -42,25 +45,35 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
     console.debug('Searching for previous valid object...', options.originalId);
     const previous = await this.getById(options.originalId);
     console.debug('PREVIOUS::::::::', JSON.stringify(previous));
+    console.log('11111', previous.type);
+    console.log('3333', options.type);
+    const addressType = previous.type
+    console.log('2222', (options.type == addressType));
+    if (options.type == addressType) {
+      console.log('options is= = ', options.type);
+      if (previous) {
+        console.debug('Invalidating previous valid object...');
+        await this.invalidate(options.originalId);
+      } else {
+        // tslint:disable-next-line:no-null-keyword
+        return null;
+      }
 
-    if (previous) {
-      console.debug('Invalidating previous valid object...');
-      await this.invalidate(options.originalId);
+      // const TYPE = Database.Addresses.findOne(type);
+
+      console.log('test', options)
+      const newInstance = Object.assign(previous.toJSON(), options);
+      newInstance.id = VersioningRepository.generateObjectId();
+      console.debug('NEW INSTANCE::::::::', newInstance);
+      delete newInstance.deletedAt;
+
+      const model = new this.modelType(newInstance);
+
+      console.debug('Creating new object...');
+      return await model.save();
     } else {
-      // tslint:disable-next-line:no-null-keyword
-      return null;
+      return this.create(options);
     }
-
-    const newInstance = Object.assign(previous.toJSON(), options);
-    newInstance.id = VersioningRepository.generateObjectId();
-    console.debug('NEW INSTANCE::::::::', newInstance);
-    delete newInstance.deletedAt;
-
-    const model = new this.modelType(newInstance);
-
-    console.debug('Creating new object...');
-    return await model.save();
-
   }
   protected getAll(query: any = {}, options: any = {}): DocumentQuery<D[], D> {
     options.limit = options.limit || 0;

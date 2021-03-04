@@ -40,21 +40,33 @@ class VersioningRepository {
             console.debug('Searching for previous valid object...', options.originalId);
             const previous = yield this.getById(options.originalId);
             console.debug('PREVIOUS::::::::', JSON.stringify(previous));
-            if (previous) {
-                console.debug('Invalidating previous valid object...');
-                yield this.invalidate(options.originalId);
+            console.log('11111', previous.type);
+            console.log('3333', options.type);
+            const addressType = previous.type;
+            console.log('2222', (options.type == addressType));
+            if (options.type == addressType) {
+                console.log('options is= = ', options.type);
+                if (previous) {
+                    console.debug('Invalidating previous valid object...');
+                    yield this.invalidate(options.originalId);
+                }
+                else {
+                    // tslint:disable-next-line:no-null-keyword
+                    return null;
+                }
+                // const TYPE = Database.Addresses.findOne(type);
+                console.log('test', options);
+                const newInstance = Object.assign(previous.toJSON(), options);
+                newInstance.id = VersioningRepository.generateObjectId();
+                console.debug('NEW INSTANCE::::::::', newInstance);
+                delete newInstance.deletedAt;
+                const model = new this.modelType(newInstance);
+                console.debug('Creating new object...');
+                return yield model.save();
             }
             else {
-                // tslint:disable-next-line:no-null-keyword
-                return null;
+                return this.create(options);
             }
-            const newInstance = Object.assign(previous.toJSON(), options);
-            newInstance.id = VersioningRepository.generateObjectId();
-            console.debug('NEW INSTANCE::::::::', newInstance);
-            delete newInstance.deletedAt;
-            const model = new this.modelType(newInstance);
-            console.debug('Creating new object...');
-            return yield model.save();
         });
     }
     getAll(query = {}, options = {}) {

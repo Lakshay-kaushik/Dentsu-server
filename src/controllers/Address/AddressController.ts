@@ -23,6 +23,7 @@ class AddressController {
   public async create(req, res, next) {
     try {
       const result = await AddressController.getInstance()._AddressService.create({
+        type: '',
         First_address: '',
         Second_address: '',
         Pincode: '',
@@ -45,7 +46,7 @@ class AddressController {
    */
   public async update(req, res, next) {
     try {
-      const { First_address, Second_address, Pincode } = req.body;
+      const { type, First_address, Second_address, Pincode } = req.body;
       const { id } = req.params;
       console.log('id', id);
       const result = await AddressController.getInstance()._AddressService.update({
@@ -53,9 +54,10 @@ class AddressController {
         First_address,
         Second_address,
         Pincode,
+        type
       });
-      console.log('inside--->', result);
-
+      // console.log('inside--->', result);
+      
       if (!result) {
         return next(SystemResponse.badRequestError('Unable to update', ''));
       }
@@ -64,11 +66,14 @@ class AddressController {
       return next(err);
     }
   }
+  
 
   /**
    * Delete the home
    * @param id {string} The id of the home
    */
+  
+  
 
 
 }

@@ -35,12 +35,13 @@ class HomeService {
     }
     update(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { First_address, Second_address, Pincode, originalId } = query;
+            const { type, First_address, Second_address, Pincode, originalId } = query;
             return this._homeRepository.update({
                 First_address,
                 Second_address,
                 Pincode,
                 originalId,
+                type,
             });
         });
     }

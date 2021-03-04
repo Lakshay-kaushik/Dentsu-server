@@ -37,12 +37,13 @@ class UserServices {
     }
     createAddress(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { First_address, Second_address, Pincode, userId } = query;
+            const { First_address, Second_address, Pincode, userId, type } = query;
             return yield this._AddressRepository.create({
-                First_address, Second_address, Pincode, userId
+                First_address, Second_address, Pincode, userId, type
             });
         });
     }
+    // db.collection.findOne
     // public async update(query): Promise<IAddress> {
     //   const { First_address, Second_address, Pincode, originalId } = query;
     //   return this._AddressRepository.update({

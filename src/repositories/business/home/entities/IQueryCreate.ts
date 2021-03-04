@@ -9,5 +9,6 @@ export default interface ICreate extends IQueryBaseCreate {
   First_address?: string;
   Second_address?: string;
   Pincode?: number;
-  userId?: string
+  userId?: string;
+  type?: string;
 }
