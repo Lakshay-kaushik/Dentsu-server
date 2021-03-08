@@ -69,6 +69,44 @@ class VersioningRepository {
             }
         });
     }
+    upsert(options) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const now = new Date();
+            console.log('option is --->', options);
+            console.debug('Searching for previous valid object...', options.originalId);
+            const previous = yield this.getById(options.originalId);
+            console.debug('PREVIOUS::::::::', JSON.stringify(previous));
+            console.log('previous---->', previous);
+            console.log('11111', previous.originalId);
+            console.log('3333', options.originalId);
+            const addressType = previous.originalId;
+            console.log('2222', (options.originalId == addressType));
+            if (options.originalId === addressType) {
+                console.log('options is= = ', options.originalId);
+                if (previous) {
+                    return this.create(options);
+                }
+                else {
+                    //  else {
+                    //   // tslint:disable-next-line:no-null-keyword
+                    //   return null;
+                    // }
+                    // const TYPE = Database.Addresses.findOne(type);
+                    console.log('test', options);
+                    const newInstance = Object.assign(previous.toJSON(), options);
+                    newInstance.id = VersioningRepository.generateObjectId();
+                    console.debug('NEW INSTANCE::::::::', newInstance);
+                    delete newInstance.deletedAt;
+                    const model = new this.modelType(newInstance);
+                    console.debug('Creating new object...');
+                    return yield model.save();
+                }
+            }
+            else {
+                return this.create(options);
+            }
+        });
+    }
     getAll(query = {}, options = {}) {
         options.limit = options.limit || 0;
         options.skip = options.skip || 0;

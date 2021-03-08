@@ -25,13 +25,14 @@ class AddressServices {
     update(query) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('update(AddressServices)');
-            const { First_address, Second_address, Pincode, originalId } = query;
+            const { First_address, Second_address, Pincode, originalId, userId } = query;
             console.log('service values', First_address, Second_address, Pincode, originalId);
             return this._AddressRepository.update({
                 First_address,
                 Second_address,
                 Pincode,
                 originalId,
+                userId,
             });
         });
     }

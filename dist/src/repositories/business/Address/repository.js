@@ -47,11 +47,11 @@ class AddressRepository extends VersioningRepository_1.default {
      */
     update(options) {
         const _super = Object.create(null, {
-            update: { get: () => super.update }
+            upsert: { get: () => super.upsert }
         });
         return __awaiter(this, void 0, void 0, function* () {
             console.debug('AddressRepository - Update: ');
-            return _super.update.call(this, options);
+            return _super.upsert.call(this, options);
         });
     }
 }

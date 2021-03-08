@@ -23,7 +23,7 @@ class AddressController {
   public async create(req, res, next) {
     try {
       const result = await AddressController.getInstance()._AddressService.create({
-        type: '',
+        userId: '',
         First_address: '',
         Second_address: '',
         Pincode: '',
@@ -46,7 +46,7 @@ class AddressController {
    */
   public async update(req, res, next) {
     try {
-      const { type, First_address, Second_address, Pincode } = req.body;
+      const { First_address, Second_address, Pincode } = req.body;
       const { id } = req.params;
       console.log('id', id);
       const result = await AddressController.getInstance()._AddressService.update({

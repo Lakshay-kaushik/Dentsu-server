@@ -38,7 +38,7 @@ export default class AddressRepository extends VersioningRepository<IAddressMode
    */
   public async update(options: IQueryUpdate): Promise<IAddressModel> {
     console.debug('AddressRepository - Update: ');
-    return super.update(options);
+    return super.upsert(options);
   }
 
 }
