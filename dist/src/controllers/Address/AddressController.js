@@ -55,7 +55,7 @@ class AddressController {
             try {
                 const { First_address, Second_address, Pincode } = req.body;
                 const { id } = req.params;
-                console.log('id', id);
+                console.log('---id----', id);
                 const result = yield AddressController.getInstance()._AddressService.update({
                     originalId: id,
                     First_address,

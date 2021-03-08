@@ -17,14 +17,13 @@ class AddressServices {
 
   public async update(query): Promise<IAddress> {
     console.log('update(AddressServices)')
-    const {  First_address, Second_address, Pincode, originalId, userId} = query;
+    const {  First_address, Second_address, Pincode, originalId} = query;
     console.log('service values', First_address, Second_address, Pincode, originalId,);
     return this._AddressRepository.update({
       First_address,
       Second_address,
       Pincode,
       originalId,
-      userId,
     });
   };
 
