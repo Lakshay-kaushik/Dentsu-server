@@ -4,16 +4,16 @@ const utilities_1 = require("../../libs/utilities");
 exports.default = Object.freeze({
     // POST /api/user/create
     create: {
-        First_name: {
-            type: 'string',
-            errorMessage: 'Name is wrong!',
-            in: ['body'],
-            isLength: {
-                errorMessage: 'Name should be at least 3 chars long',
-                // Multiple options would be expressed as an array
-                options: { min: 3 },
-            },
-        },
+        // First_name: {
+        //     type: 'string',
+        //   errorMessage: 'Name is wrong!',
+        //   in: ['body'],
+        //   isLength: {
+        //     errorMessage: 'Name should be at least 3 chars long',
+        //     // Multiple options would be expressed as an array
+        //     options: { min: 3 },
+        //   },
+        // },
         email: {
             type: 'string',
             errorMessage: "email is wrong!",

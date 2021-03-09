@@ -27,6 +27,8 @@ const schema_1 = require("./schema");
  *         type: string
  *       Pincode:
  *         type: number
+ *       userId:
+ *         type: string
  *       originalId:
  *         type: string
  *       createdAt:

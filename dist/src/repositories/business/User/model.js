@@ -123,7 +123,7 @@ exports.userSchema.method({});
  */
 exports.userSchema.statics = {};
 /**
- * @typedef Home
+ * @typedef User
  */
 exports.userModel = mongoose.model('users', exports.userSchema);
 //# sourceMappingURL=model.js.map

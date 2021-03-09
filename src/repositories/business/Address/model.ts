@@ -27,6 +27,8 @@ import AddressSchema from './schema';
  *         type: string
  *       Pincode:
  *         type: number
+ *       userId:
+ *         type: string
  *       originalId:
  *         type: string
  *       createdAt:

@@ -24,7 +24,7 @@ const router = express_1.Router();
  *         in: body
  *         required: true
  *         schema:
- *           $ref: '#/definitions/HomePut'
+ *           $ref: '#/definitions/AddressPut'
  *     responses:
  *       200:
  *         description: Successfully created

@@ -129,7 +129,7 @@ userSchema.method({});
 userSchema.statics = {};
 
 /**
- * @typedef Home
+ * @typedef User
  */
 
 export const userModel: mongoose.Model<IUserModel> = mongoose.model<IUserModel>

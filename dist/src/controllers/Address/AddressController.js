@@ -23,6 +23,13 @@ class AddressController {
         }
         return AddressController.instance;
     }
+    /**
+     * Create new Address
+     * @property {string} First_address - The First_address of hello world.
+     * @property {string} Second_address - The Second_address of hello world.
+     * @property {number} Pincode - The Pincode of hello world.
+     * @returns {IAddress}
+     */
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {

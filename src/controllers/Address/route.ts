@@ -25,7 +25,7 @@ const router = Router();
  *         in: body
  *         required: true
  *         schema:
- *           $ref: '#/definitions/HomePut'
+ *           $ref: '#/definitions/AddressPut'
  *     responses:
  *       200:
  *         description: Successfully created

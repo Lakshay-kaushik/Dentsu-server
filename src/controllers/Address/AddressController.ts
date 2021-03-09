@@ -20,6 +20,13 @@ class AddressController {
   private constructor() {
     this._AddressService = new AddressServices();
   }
+  /**
+   * Create new Address
+   * @property {string} First_address - The First_address of hello world.
+   * @property {string} Second_address - The Second_address of hello world.
+   * @property {number} Pincode - The Pincode of hello world.
+   * @returns {IAddress}
+   */
   public async create(req, res, next) {
     try {
       const result = await AddressController.getInstance()._AddressService.create({
