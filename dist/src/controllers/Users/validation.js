@@ -12,7 +12,7 @@ exports.default = Object.freeze({
             isLength: {
                 errorMessage: 'Name invalid',
                 // Multiple options would be expressed as an array
-                options: { min: 5 },
+                options: { min: 2 },
             },
         },
         email: {
