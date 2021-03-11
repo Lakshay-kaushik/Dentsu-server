@@ -27,6 +27,9 @@ const router = Router();
  *           - last_name
  *           - email
  *           - mobile_number
+ *           - first_address
+ *           - second_address
+ *           - pincode
  *           properties:
  *             first_name:
  *               type: string
@@ -44,6 +47,18 @@ const router = Router();
  *               type: string
  *               example: 9997123123
  *               description: Password created by user
+ *             first_address:
+ *               type: string
+ *               example: E-1406,SG Grand, Sector-4
+ *               description: Email of the user
+ *             second_address:
+ *               type: string
+ *               example: Rajnagar, Extension
+ *               description: Name of the user
+ *             pincode:
+ *               type: number
+ *               example: 924122
+ *               description: pincode of user address
  *     responses:
  *       200:
  *         description: Successfully created
