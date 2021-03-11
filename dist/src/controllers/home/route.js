@@ -81,7 +81,7 @@ router.route('/:id')
  *         schema:
  *           $ref: '#/definitions/HomeObjectSuccess'
  *         properties:
- *             First_name:
+ *             first_name:
  *                   type: String
  *                   example: "Lakshay"
  *             Second_name:
@@ -108,9 +108,9 @@ router.route('/')
  *     produces:
  *       - application/json
  *     parameters:
- *       - name: First_address
+ *       - name: first_address
  *         Last_address: Last_address
- *         Pincode: Pincode
+ *         pincode: pincode
  *         description: Updated home name
  *         in: body
  *         required: true

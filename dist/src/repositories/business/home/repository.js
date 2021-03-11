@@ -46,7 +46,7 @@ class HomeRepository extends VersioningRepository_1.default {
     }
     /**
      * Create new home
-     * @property {string} First_name - The name of record.
+     * @property {string} first_name - The name of record.
      * @returns {User}
      */
     create(options) {
@@ -60,7 +60,7 @@ class HomeRepository extends VersioningRepository_1.default {
     }
     /**
      * Update new home
-     * @property {string} First_name - The name of record.
+     * @property {string} first_name - The name of record.
      * @returns {User}
      */
     update(options) {

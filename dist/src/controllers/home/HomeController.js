@@ -65,8 +65,8 @@ class HomeController {
     }
     /**
      * Create new home
-     * @property {string} First_name - The First_name of hello world.
-     * @property {string} Last_name - The Last_name of hello world.
+     * @property {string} first_name - The first_name of hello world.
+     * @property {string} last_name - The last_name of hello world.
      * @property {string} email - The email of hello world.
      * @property {number} mobile_number - The mobile_number of hello world.
      * @returns {IHome}
@@ -74,9 +74,9 @@ class HomeController {
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { First_name, Last_name, email, mobile_number, } = req.body;
+                const { first_name, last_name, email, mobile_number, } = req.body;
                 const result = yield HomeController.getInstance()._homeService.create({
-                    First_name, Last_name, email, mobile_number,
+                    first_name, last_name, email, mobile_number,
                 });
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));
@@ -91,19 +91,19 @@ class HomeController {
     /**sss
      * Update the home
      * @param id {string} - The id of the home.
-     * @param First_address {string} -The updated First_address
-     * @param Second_address {string} -The updated Second_address
-     * @param Pincode {number} -The updated Pincode
+     * @param first_address {string} -The updated first_address
+     * @param second_address {string} -The updated second_address
+     * @param pincode {number} -The updated pincode
      * @returns {IHome}
      */
     update(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                const { id, First_address, Second_address, Pincode } = req.body;
+                const { id, first_address, second_address, pincode } = req.body;
                 const result = yield HomeController.getInstance()._homeService.update({
-                    originalId: id, First_address,
-                    Second_address,
-                    Pincode,
+                    originalId: id, first_address,
+                    second_address,
+                    pincode,
                 });
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to update', ''));

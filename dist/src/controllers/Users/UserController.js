@@ -31,30 +31,29 @@ class UserController {
      */
     /**
      * Create new home
-     * @property {string} First_name - The First_name of hello world.
-     * @property {string} Last_name - The Last_name of hello world.
+     * @property {string} first_name - The first_name of hello world.
+     * @property {string} last_name - The last_name of hello world.
      * @property {string} email - The email of hello world.
      * @property {number} mobile_number - The mobile_number of hello world.
      * @returns {IUser}
      */
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('IN create in controller');
             try {
-                const { First_name, Last_name, email, mobile_number, First_address, Second_address, Pincode, } = req.body;
+                const { first_name, last_name, email, mobile_number, first_address, second_address, pincode, } = req.body;
+                console.log(req.body.first_name);
                 let result;
-                if (email !== mobile_number) {
-                    result = yield UserController.getInstance()._UserService.createUser({
-                        First_name, Last_name, email, mobile_number,
+                result = yield UserController.getInstance()._UserService.createUser({
+                    first_name, last_name, email, mobile_number,
+                });
+                console.log('USER CREATED ', result.originalId);
+                if (result && result.originalId) {
+                    yield UserController.getInstance()._UserService.createAddress({
+                        first_address, second_address, pincode,
+                        userId: result.originalId
                     });
-                    console.log('USER CREATED ', result.originalId);
-                    if (result && result.originalId) {
-                        yield UserController.getInstance()._UserService.createAddress({
-                            First_address, Second_address, Pincode,
-                            userId: result.originalId
-                        });
-                    }
                 }
-                userId: result.id;
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));
                 }

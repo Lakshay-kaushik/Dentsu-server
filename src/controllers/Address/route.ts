@@ -8,7 +8,7 @@ const router = Router();
 
 /**
  * @swagger
- * /Address:
+ * /Address/{id}:
  *   put:
  *     security:
  *       - Bearer: []
@@ -18,19 +18,45 @@ const router = Router();
  *     produces:
  *       - application/json
  *     parameters:
- *       - name: First_address
- *         Last_address: Last_address
- *         Pincode: Pincode
- *         description: Updated Address
+ *       - name: id
+ *         in: path
+ *         type: string
+ *       - name: body
  *         in: body
- *         required: true
  *         schema:
- *           $ref: '#/definitions/AddressPut'
+ *           type: object
+ *           required:
+ *           - first_address
+ *           - second_address
+ *           - pincode
+ *           properties:
+ *             first_address:
+ *               type: string
+ *               example: E-1406,SG Grand, Sector-4
+ *               description: Email of the user
+ *             second_address:
+ *               type: string
+ *               example: Rajnagar, Extension
+ *               description: Name of the user
+ *             pincode:
+ *               type: number
+ *               example: 924122
+ *               description: pincode of user address
  *     responses:
  *       200:
- *         description: Successfully created
+ *         description: Successfully Updated
  *         schema:
- *           $ref: '#/definitions/HomeObjectSuccess'
+ *           $ref: '#/definitions/AddressObjectSuccess'
+ *     properties:
+ *           first_address: 
+ *                 type: String
+ *                 example: "E-1406, SG Grand, sector-4"
+ *           second_address:
+ *               type: String
+ *               example: "Rajnagar Extension, ghaziabad"
+ *           Pinocde:
+ *               type: Number
+ *               example: 954214
  */
 router.route('/:id')
   .put(
@@ -38,8 +64,57 @@ router.route('/:id')
     AddressController.update,
   );
 
-  
-  router.route('/')
+/**
+ * @swagger
+ * /Address:
+ *   post:
+ *     security:
+ *       - Bearer: []
+ *     tags:
+ *       - Address
+ *     description: Creates a new Address
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: body
+ *         in: body
+ *         schema:
+ *           type: object
+ *           required:
+ *           - userId
+ *           - first_address
+ *           - second_address
+ *           - pincode
+ *           properties:
+ *             first_address:
+ *               type: string
+ *               example: E-1406,SG Grand, Sector-4
+ *               description: Email of the user
+ *             second_address:
+ *               type: string
+ *               example: Rajnagar, Extension
+ *               description: Name of the user
+ *             pincode:
+ *               type: number
+ *               example: 924122
+ *               description: pincode of user address
+ *     responses:
+ *       200:
+ *         description: Successfully created
+ *         schema:
+ *           $ref: '#/definitions/UserObjectSuccess'
+ *         properties:
+ *             first_address: 
+ *                   type: String
+ *                   example: "E-1406, SG Grand, sector-4"
+ *             second_address:
+ *                 type: String
+ *                 example: "Rajnagar Extension, ghaziabad"
+ *             Pinocde:
+ *                type: Number
+ *                example: 954214
+ */
+router.route('/')
   .post(
     validationHandler(''),
     AddressController.create,

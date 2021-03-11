@@ -1,31 +1,30 @@
 import { isValidObjectId } from '../../libs/utilities';
 
 export default Object.freeze({
-  // POST /api/user/create
+  // POST /api/users/create
   create: {
-    // First_name: {
-    //     type: 'string',
-    //   errorMessage: 'Name is wrong!',
-    //   in: ['body'],
-    //   isLength: {
-    //     errorMessage: 'Name should be at least 3 chars long',
-    //     // Multiple options would be expressed as an array
-    //     options: { min: 3 },
-    //   },
-    // },
+    first_name: {
+      errorMessage: 'Name is wrong!',
+      in: ['body'],
+      isLength: {
+        errorMessage: 'Name should be at least 2 chars long',
+        // Multiple options would be expressed as an array
+        options: { min: 2 },
+      },
+    },
     email: {
-          type: 'string',
-          errorMessage: "email is wrong!",
-          match: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, `Please fill valid email address`],
-          in: ['body'],
-        },
-        mobile_number: {
-          type: 'Int',
-          required: 'false',
-        },
-        
-},
-update: {
+      type: 'string',
+      errorMessage: "email is wrong!",
+      match: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, `Please fill valid email address`],
+      in: ['body'],
+    },
+    mobile_number: {
+      type: 'Int',
+      required: 'false',
+    },
+
+  },
+  update: {
     id: {
       custom: {
         options: (id: string) => {
@@ -35,7 +34,7 @@ update: {
       errorMessage: 'Bad ID format',
       in: ['body'],
     },
-    First_address: {
+    first_address: {
       errorMessage: 'Name is wrong!',
       in: ['body'],
       isLength: {

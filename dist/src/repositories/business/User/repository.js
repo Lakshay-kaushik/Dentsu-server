@@ -31,8 +31,8 @@ class HomeRepository extends VersioningRepository_1.default {
         });
     }
     /**
-     * Get home.
-     * @property {string} id - _id of the record
+     * Get user.
+     * @property {string} id - id of the record
      * @returns {User}
      */
     get(query) {
@@ -45,7 +45,7 @@ class HomeRepository extends VersioningRepository_1.default {
         });
     }
     /**
-     * Create new home
+     * Create new user
      * @property {string} firstname - The first name of user.
      * @property {string} lastname - The last name of user.
      * @property {number} mobilenumber - The contact number of user.
@@ -62,8 +62,8 @@ class HomeRepository extends VersioningRepository_1.default {
         });
     }
     /**
-     * Update new home
-     * @property {string} First_name - The name of record.
+     * Update new user
+     * @property {string} first_name - The name of record.
      * @returns {User}
      */
     update(options) {
@@ -76,7 +76,7 @@ class HomeRepository extends VersioningRepository_1.default {
         });
     }
     /**
-     * Delete home
+     * Delete user
      * @property {string} body.name - The name of record.
      * @returns {User}
      */
@@ -90,8 +90,8 @@ class HomeRepository extends VersioningRepository_1.default {
         });
     }
     /**
-     * Hard Delete home
-     * @property {string} body.name - The name of record.
+     * Hard Delete user
+     * @property {string} body.name - The name of user.
      * @returns {User}
      */
     hardDelete(query) {

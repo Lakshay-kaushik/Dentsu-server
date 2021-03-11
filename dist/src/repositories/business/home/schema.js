@@ -4,11 +4,11 @@ const VersionableSchema_1 = require("../../versionable/VersionableSchema");
 class HomeSchema extends VersionableSchema_1.default {
     constructor(options) {
         const baseSchema = {
-            First_name: {
+            first_name: {
                 required: true,
                 type: String,
             },
-            Last_name: {
+            last_name: {
                 required: false,
                 type: String,
             },
@@ -20,15 +20,15 @@ class HomeSchema extends VersionableSchema_1.default {
                 required: true,
                 type: Number,
             },
-            First_address: {
+            first_address: {
                 required: false,
                 type: String,
             },
-            Second_address: {
+            second_address: {
                 required: false,
                 type: String,
             },
-            Pincode: {
+            pincode: {
                 required: false,
                 type: Number
             }

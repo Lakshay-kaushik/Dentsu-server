@@ -22,18 +22,18 @@ class AddressController {
   }
   /**
    * Create new Address
-   * @property {string} First_address - The First_address of hello world.
-   * @property {string} Second_address - The Second_address of hello world.
-   * @property {number} Pincode - The Pincode of hello world.
+   * @property {string} first_address - The first_address of hello world.
+   * @property {string} second_address - The second_address of hello world.
+   * @property {number} pincode - The pincode of hello world.
    * @returns {IAddress}
    */
   public async create(req, res, next) {
     try {
       const result = await AddressController.getInstance()._AddressService.create({
         userId: '',
-        First_address: '',
-        Second_address: '',
-        Pincode: '',
+        first_address: '',
+        second_address: '',
+        pincode: '',
       });
       if (!result) {
         return next(SystemResponse.badRequestError('Unable to create', ''));
@@ -44,26 +44,26 @@ class AddressController {
     }
   }
   /**sss
-   * Update the home
+   * Update the Address
    * @param id {string} - The id of the home.
-   * @param First_address {string} -The updated First_address
-   * @param Second_address {string} -The updated Second_address
-   * @param Pincode {number} -The updated Pincode
+   * @param first_address {string} -The updated first_address
+   * @param second_address {string} -The updated second_address
+   * @param pincode {number} -The updated pincode
    * @returns {IAddress}
    */
   public async update(req, res, next) {
     try {
-      const { First_address, Second_address, Pincode } = req.body;
+      const { first_address, second_address, pincode } = req.body;
       const { id } = req.params;
       console.log('---id----', id);
       const result = await AddressController.getInstance()._AddressService.update({
         originalId: id,
-        First_address,
-        Second_address,
-        Pincode,
+        first_address,
+        second_address,
+        pincode,
       });
-      // console.log('inside--->', result);
-      
+      console.log('inside--->', result);
+
       if (!result) {
         return next(SystemResponse.badRequestError('Unable to update', ''));
       }
@@ -72,14 +72,14 @@ class AddressController {
       return next(err);
     }
   }
-  
+
 
   /**
    * Delete the home
    * @param id {string} The id of the home
    */
-  
-  
+
+
 
 
 }

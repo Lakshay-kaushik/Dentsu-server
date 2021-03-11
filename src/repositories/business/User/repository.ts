@@ -25,8 +25,8 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
   }
 
   /**
-   * Get home.
-   * @property {string} id - _id of the record
+   * Get user.
+   * @property {string} id - id of the record
    * @returns {User}
    */
   public async get(query: IQueryGet): Promise<Nullable<IUserModel>> {
@@ -36,7 +36,7 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
   }
 
   /**
-   * Create new home
+   * Create new user
    * @property {string} firstname - The first name of user.
    * @property {string} lastname - The last name of user.
    * @property {number} mobilenumber - The contact number of user.
@@ -49,8 +49,8 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
   }
 
   /**
-   * Update new home
-   * @property {string} First_name - The name of record.
+   * Update new user
+   * @property {string} first_name - The name of record.
    * @returns {User}
    */
   public async update(options: IQueryUpdate): Promise<IUserModel> {
@@ -58,7 +58,7 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
     return super.update(options);
   }
   /**
-   * Delete home
+   * Delete user
    * @property {string} body.name - The name of record.
    * @returns {User}
    */
@@ -68,8 +68,8 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
   }
 
   /**
-   * Hard Delete home
-   * @property {string} body.name - The name of record.
+   * Hard Delete user
+   * @property {string} body.name - The name of user.
    * @returns {User}
    */
   public async hardDelete(query: IQueryDelete): Promise<IUserModel> {

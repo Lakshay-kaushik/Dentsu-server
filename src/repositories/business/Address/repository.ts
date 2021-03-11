@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import { Nullable } from '../../../libs/Nullable';
 import VersioningRepository from '../../versionable/VersioningRepository';
-import { IQueryCreate,IQueryGet, IQueryUpdate } from '../home/entities';
+import { IQueryCreate, IQueryGet, IQueryUpdate } from '../home/entities';
 import IAddressModel from './IModel';
 import { AddressModel } from './model';
 
@@ -13,7 +13,7 @@ export default class AddressRepository extends VersioningRepository<IAddressMode
   }
 
   /**
-   * Get home.
+   * Get Address.
    * @property {string} id - _id of the record
    * @returns {Address}
    */
@@ -30,10 +30,10 @@ export default class AddressRepository extends VersioningRepository<IAddressMode
   }
 
   /**
-   * Update new home
-   * @property {string} First_address - The First address of record.
-   * @property {string} Second_address - The Second address of record.
-   * @property {number} Pincode - The pincode of record
+   * Update new address
+   * @property {string} first_address - The First address of record.
+   * @property {string} second_address - The Second address of record.
+   * @property {number} pincode - The pincode of record
    * @returns {Address}
    */
   public async update(options: IQueryUpdate): Promise<IAddressModel> {

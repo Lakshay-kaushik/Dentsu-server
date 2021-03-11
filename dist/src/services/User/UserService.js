@@ -29,28 +29,28 @@ class UserServices {
     }
     createUser(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { First_name, Last_name, email, mobile_number } = query;
+            const { first_name, last_name, email, mobile_number } = query;
             return yield this._UserRepository.create({
-                First_name, Last_name, email, mobile_number,
+                first_name, last_name, email, mobile_number,
             });
         });
     }
     createAddress(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { First_address, Second_address, Pincode, userId, } = query;
+            const { first_address, second_address, pincode, userId, } = query;
             return yield this._AddressRepository.create({
-                First_address, Second_address, Pincode, userId,
+                first_address, second_address, pincode, userId,
             });
         });
     }
     // db.collection.findOne
     // public async update(query): Promise<IAddress> {
-    //   const { First_address, Second_address, Pincode, originalId } = query;
+    //   const { first_address, second_address, pincode, originalId } = query;
     //   return this._AddressRepository.update({
     //     address: {
-    //       First_address,
-    //       Second_address,
-    //       Pincode
+    //       first_address,
+    //       second_address,
+    //       pincode
     //     },
     //     originalId,
     // });

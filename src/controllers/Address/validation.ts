@@ -13,7 +13,7 @@ export default Object.freeze({
       in: ['params'],
     },
     address: {
-      First_address: {
+      first_address: {
         errorMessage: 'address is wrong!',
         in: ['body'],
         isLength: {
@@ -22,15 +22,15 @@ export default Object.freeze({
           options: { min: 25 },
         },
       },
-      Second_address: {
-        required: false,
+      second_address: {
+        required: true,
         in: ['body'],
       },
-      Pincode: {
-        required: false,
+      pincode: {
+        required: true,
         in: ['body'],
       },
-      
+
     }
   },
   delete: {

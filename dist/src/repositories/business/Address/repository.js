@@ -16,7 +16,7 @@ class AddressRepository extends VersioningRepository_1.default {
         super(model_1.AddressModel);
     }
     /**
-     * Get home.
+     * Get Address.
      * @property {string} id - _id of the record
      * @returns {Address}
      */
@@ -39,10 +39,10 @@ class AddressRepository extends VersioningRepository_1.default {
         });
     }
     /**
-     * Update new home
-     * @property {string} First_address - The First address of record.
-     * @property {string} Second_address - The Second address of record.
-     * @property {number} Pincode - The pincode of record
+     * Update new address
+     * @property {string} first_address - The First address of record.
+     * @property {string} second_address - The Second address of record.
+     * @property {number} pincode - The pincode of record
      * @returns {Address}
      */
     update(options) {

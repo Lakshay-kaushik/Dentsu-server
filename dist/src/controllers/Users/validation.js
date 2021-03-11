@@ -2,18 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const utilities_1 = require("../../libs/utilities");
 exports.default = Object.freeze({
-    // POST /api/user/create
+    // POST /api/users/create
     create: {
-        // First_name: {
-        //     type: 'string',
-        //   errorMessage: 'Name is wrong!',
-        //   in: ['body'],
-        //   isLength: {
-        //     errorMessage: 'Name should be at least 3 chars long',
-        //     // Multiple options would be expressed as an array
-        //     options: { min: 3 },
-        //   },
-        // },
+        first_name: {
+            errorMessage: 'Name is wrong!',
+            in: ['body'],
+            isLength: {
+                errorMessage: 'Name should be at least 2 chars long',
+                // Multiple options would be expressed as an array
+                options: { min: 2 },
+            },
+        },
         email: {
             type: 'string',
             errorMessage: "email is wrong!",
@@ -35,7 +34,7 @@ exports.default = Object.freeze({
             errorMessage: 'Bad ID format',
             in: ['body'],
         },
-        First_address: {
+        first_address: {
             errorMessage: 'Name is wrong!',
             in: ['body'],
             isLength: {

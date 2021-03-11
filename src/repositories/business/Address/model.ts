@@ -4,28 +4,38 @@ import IAddressModel from './IModel';
 import AddressSchema from './schema';
 
 /**
- * address Schema
+ * Address Schema
  */
 /**
  * @swagger
  * definitions:
  *   AddressPut:
  *     properties:
- *       First_address:
+ *       id:
  *         type: string
- *       Second_address:
+ *       first_address:
  *         type: string
- *       Pincode: 
- *         type: Number
- *   UserResponse:
+ *       second_address:
+ *         type: string
+ *       pincode: 
+ *        type: number
+ *   AddressPost:
  *     properties:
- *       First_address:
+ *       first_address:
+ *         type: string
+ *       second_address:
+ *         type: string
+ *       pincode: 
+ *         type: number
+ *   AddressResponse:
+ *     properties:
+ *       first_address:
  *         type: string
  *       id:
  *         type: string
- *       Second_address:
+ *       second_address:
  *         type: string
- *       Pincode:
+ *       pincode:
  *         type: number
  *       userId:
  *         type: string
@@ -33,7 +43,7 @@ import AddressSchema from './schema';
  *         type: string
  *       createdAt:
  *         type: string
- *   UserArraySuccess:
+ *   AddressArraySuccess:
  *     properties:
  *       message:
  *         type: string
@@ -44,8 +54,8 @@ import AddressSchema from './schema';
  *       data:
  *         type: array
  *         items:
- *           $ref: '#/definitions/HomeResponse'
- *   UserObjectSuccess:
+ *           $ref: '#/definitions/AddressResponse'
+ *   AddressObjectSuccess:
  *     properties:
  *       message:
  *         type: string
@@ -55,7 +65,7 @@ import AddressSchema from './schema';
  *         example: 200
  *       data:
  *         type: object
- *         $ref: '#/definitions/HomeResponse'
+ *         $ref: '#/definitions/AddressResponse'
  *   DeleteSuccess:
  *     properties:
  *       message:

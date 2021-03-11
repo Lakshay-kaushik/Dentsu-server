@@ -16,22 +16,22 @@ class HomeService {
 
   public async get(query): Promise<IHome> {
     const { id } = query;
-    return this._homeRepository.get({id});
+    return this._homeRepository.get({ id });
   }
 
   public async create(query): Promise<IHome> {
-    const { First_name, Last_name, email, mobile_number,} = query;
+    const { first_name, last_name, email, mobile_number, } = query;
     return this._homeRepository.create({
-      First_name, Last_name, email, mobile_number,
+      first_name, last_name, email, mobile_number,
     });
   }
 
   public async update(query): Promise<IHome> {
-    const { First_address, Second_address, Pincode, originalId } = query;
+    const { first_address, second_address, pincode, originalId } = query;
     return this._homeRepository.update({
-     First_address,
-      Second_address,
-      Pincode,
+      first_address,
+      second_address,
+      pincode,
       originalId,
     });
   }

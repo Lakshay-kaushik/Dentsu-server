@@ -37,7 +37,7 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
 
   /**
    * Create new home
-   * @property {string} First_name - The name of record.
+   * @property {string} first_name - The name of record.
    * @returns {User}
    */
   public async create(options: IQueryCreate): Promise<IUserModel> {
@@ -47,7 +47,7 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
 
   /**
    * Update new home
-   * @property {string} First_name - The name of record.
+   * @property {string} first_name - The name of record.
    * @returns {User}
    */
   public async update(options: IQueryUpdate): Promise<IUserModel> {

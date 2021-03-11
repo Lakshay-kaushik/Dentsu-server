@@ -16,21 +16,21 @@ class AddressServices {
     }
     create(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { First_address, Second_address, Pincode, } = query;
+            const { first_address, second_address, pincode, } = query;
             return yield this._AddressRepository.create({
-                First_address, Second_address, Pincode,
+                first_address, second_address, pincode,
             });
         });
     }
     update(query) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('update(AddressServices)');
-            const { First_address, Second_address, Pincode, originalId } = query;
-            console.log('service values', First_address, Second_address, Pincode, originalId);
+            const { first_address, second_address, pincode, originalId } = query;
+            console.log('service values', first_address, second_address, pincode, originalId);
             return this._AddressRepository.update({
-                First_address,
-                Second_address,
-                Pincode,
+                first_address,
+                second_address,
+                pincode,
                 originalId,
             });
         });

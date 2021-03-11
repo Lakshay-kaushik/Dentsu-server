@@ -1,5 +1,4 @@
 import * as mongoose from 'mongoose';
-
 import IUserModel from './IModel';
 import UserSchema from './schema';
 
@@ -11,9 +10,9 @@ import UserSchema from './schema';
  * definitions:
  *   UserPost:
  *     properties:
- *       First_name:
- *         type: string
- *       Last_name:
+ *       first_name:
+ *        type: string
+ *       last_name:
  *         type: string
  *       mobile_number:
  *         type: number
@@ -21,15 +20,15 @@ import UserSchema from './schema';
  *         type: string
  *   UserResponse:
  *     properties:
- *       First_name:
+ *       first_name:
  *         type: string
- *       id:
- *         type: string
- *       Last_name:
+ *       last_name:
  *         type: string
  *       mobile_number:
  *         type: number
  *       email:
+ *         type: string
+ *       id:
  *         type: string
  *       originalId:
  *         type: string
@@ -46,7 +45,7 @@ import UserSchema from './schema';
  *       data:
  *         type: array
  *         items:
- *           $ref: '#/definitions/HomeResponse'
+ *           $ref: '#/definitions/UserResponse'
  *   UserObjectSuccess:
  *     properties:
  *       message:
@@ -57,7 +56,7 @@ import UserSchema from './schema';
  *         example: 200
  *       data:
  *         type: object
- *         $ref: '#/definitions/HomeResponse'
+ *         $ref: '#/definitions/UserResponse'
  *   DeleteSuccess:
  *     properties:
  *       message:

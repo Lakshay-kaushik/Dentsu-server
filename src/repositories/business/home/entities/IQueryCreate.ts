@@ -2,13 +2,13 @@ import { IQueryCreate } from '.';
 import { IQueryBaseCreate } from '../../../entities';
 
 export default interface ICreate extends IQueryBaseCreate {
-  First_name?: string;
-  Last_name?: string;
+  first_name?: string;
+  last_name?: string;
   email?: string;
   mobile_number?: number;
-  First_address?: string;
-  Second_address?: string;
-  Pincode?: number;
+  first_address?: string;
+  second_address?: string;
+  pincode?: number;
   userId?: string;
   type?: string;
 }

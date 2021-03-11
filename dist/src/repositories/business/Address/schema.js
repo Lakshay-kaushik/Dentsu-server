@@ -12,15 +12,15 @@ class AddressSchema extends VersionableSchema_1.default {
                 required: false,
                 type: String,
             },
-            First_address: {
+            first_address: {
                 required: false,
                 type: String,
             },
-            Second_address: {
+            second_address: {
                 required: false,
                 type: String,
             },
-            Pincode: {
+            pincode: {
                 required: false,
                 type: Number
             },

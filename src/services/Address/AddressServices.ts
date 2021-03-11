@@ -9,20 +9,20 @@ class AddressServices {
     this._AddressRepository = new AddressRepository();
   }
   public async create(query): Promise<IAddress> {
-    const { First_address, Second_address, Pincode, } = query;
+    const { first_address, second_address, pincode, } = query;
     return await this._AddressRepository.create({
-      First_address, Second_address, Pincode,
+      first_address, second_address, pincode,
     });
   }
 
   public async update(query): Promise<IAddress> {
     console.log('update(AddressServices)')
-    const {  First_address, Second_address, Pincode, originalId} = query;
-    console.log('service values', First_address, Second_address, Pincode, originalId,);
+    const { first_address, second_address, pincode, originalId } = query;
+    console.log('service values', first_address, second_address, pincode, originalId,);
     return this._AddressRepository.update({
-      First_address,
-      Second_address,
-      Pincode,
+      first_address,
+      second_address,
+      pincode,
       originalId,
     });
   };

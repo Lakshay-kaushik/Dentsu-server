@@ -4,7 +4,7 @@ const utilities_1 = require("../../libs/utilities");
 exports.default = Object.freeze({
     // POST /api/homes/create
     create: {
-        First_name: {
+        first_name: {
             errorMessage: 'Name is wrong!',
             in: ['body'],
             isLength: {
@@ -64,7 +64,7 @@ exports.default = Object.freeze({
             errorMessage: 'Bad ID format',
             in: ['body'],
         },
-        First_address: {
+        first_address: {
             errorMessage: 'Name is wrong!',
             in: ['body'],
             isLength: {
