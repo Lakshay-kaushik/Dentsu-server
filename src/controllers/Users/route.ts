@@ -81,6 +81,7 @@ const router = Router();
 router.route('/')
   .post(
     UserController.create,
+    validationHandler(validation.create as any)
   );
 
 export default router;
