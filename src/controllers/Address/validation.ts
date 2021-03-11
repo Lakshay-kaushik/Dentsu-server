@@ -32,7 +32,11 @@ export default Object.freeze({
         type : 'Int',
         required: true,
         in: ['body'],
-        options: { min:4, max:7 }
+        isLength: {
+        errorMessage: 'Invalid Pincode',
+        // Multiple options would be expressed as an array
+        options: { min: 4},
+        }
       },
   },
   delete: {

@@ -6,6 +6,7 @@ exports.default = Object.freeze({
     create: {
         first_name: {
             errorMessage: 'Name is wrong!',
+            required: true,
             in: ['body'],
             isLength: {
                 errorMessage: 'Name should be at least 2 chars long',
@@ -15,13 +16,14 @@ exports.default = Object.freeze({
         },
         email: {
             type: 'string',
+            required: true,
             errorMessage: "email is wrong!",
             match: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, `Please fill valid email address`],
             in: ['body'],
         },
         mobile_number: {
             type: 'Int',
-            required: 'false',
+            required: 'true',
         },
         first_address: {
             type: 'string',
@@ -43,7 +45,11 @@ exports.default = Object.freeze({
             type: 'Int',
             required: true,
             in: ['body'],
-            options: { min: 4, max: 7 }
+            isLength: {
+                errorMessage: 'Invalid Pincode',
+                // Multiple options would be expressed as an array
+                options: { min: 4 },
+            }
         },
     },
     update: {
