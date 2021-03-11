@@ -6,13 +6,13 @@ exports.default = Object.freeze({
     create: {
         first_name: {
             type: 'string',
-            errorMessage: 'Name is wrong!',
-            required: true,
+            errorMessage: 'name is wrong!',
             in: ['body'],
+            required: false,
             isLength: {
-                errorMessage: 'Name should be at least 2 chars long',
+                errorMessage: 'Name invalid',
                 // Multiple options would be expressed as an array
-                options: { min: 4 },
+                options: { min: 5 },
             },
         },
         email: {

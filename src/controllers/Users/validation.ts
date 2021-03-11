@@ -4,16 +4,15 @@ import { isValidObjectId } from '../../libs/utilities';
 export default Object.freeze({
   // POST /api/users/create
   create: {
-    first_name: 
-    {
+    first_name: {
       type: 'string',
-      errorMessage: 'Name is wrong!',
-      required: true,
+      errorMessage: 'name is wrong!',
       in: ['body'],
+      required: false,
       isLength: {
-        errorMessage: 'Name should be at least 2 chars long',
+        errorMessage: 'Name invalid',
         // Multiple options would be expressed as an array
-        options: { min: 4 },
+        options: { min: 5 },
       },
     },
     email: {
@@ -44,13 +43,13 @@ export default Object.freeze({
       in: ['body'],
     },
     pincode: {
-      type : 'Int',
+      type: 'Int',
       required: true,
       in: ['body'],
       isLength: {
         errorMessage: 'Invalid Pincode',
         // Multiple options would be expressed as an array
-        options: { min: 4},
+        options: { min: 4 },
       }
     },
 

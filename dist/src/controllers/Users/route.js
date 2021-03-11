@@ -78,6 +78,6 @@ const router = express_1.Router();
  *                example: 9540953776
  */
 router.route('/')
-    .post(UserController_1.default.create, utilities_1.validationHandler(validation_1.default.create));
+    .post(utilities_1.validationHandler(validation_1.default.create), UserController_1.default.create);
 exports.default = router;
 //# sourceMappingURL=route.js.map

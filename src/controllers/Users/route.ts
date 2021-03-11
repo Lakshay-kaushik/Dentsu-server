@@ -80,8 +80,8 @@ const router = Router();
  */
 router.route('/')
   .post(
+    validationHandler(validation.create),
     UserController.create,
-    validationHandler(validation.create as any)
   );
 
 export default router;
