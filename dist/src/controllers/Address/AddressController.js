@@ -33,11 +33,12 @@ class AddressController {
     create(req, res, next) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
+                const { userId = '', first_address = '', second_address = '', pincode = '' } = req.body;
                 const result = yield AddressController.getInstance()._AddressService.create({
-                    userId: '',
-                    first_address: '',
-                    second_address: '',
-                    pincode: '',
+                    userId,
+                    first_address,
+                    second_address,
+                    pincode,
                 });
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));

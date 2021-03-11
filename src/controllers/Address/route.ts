@@ -86,14 +86,17 @@ router.route('/:id')
  *           - second_address
  *           - pincode
  *           properties:
+ *             userId:
+ *              type: string
+ *              example: 6049e03ee683a95d21c8524c
  *             first_address:
  *               type: string
  *               example: E-1406,SG Grand, Sector-4
- *               description: Email of the user
+ *               description: First address of the user
  *             second_address:
  *               type: string
  *               example: Rajnagar, Extension
- *               description: Name of the user
+ *               description: Second address of the user
  *             pincode:
  *               type: number
  *               example: 924122

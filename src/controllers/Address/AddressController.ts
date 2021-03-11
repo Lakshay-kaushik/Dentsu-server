@@ -29,11 +29,12 @@ class AddressController {
    */
   public async create(req, res, next) {
     try {
+      const { userId = '', first_address = '', second_address = '', pincode = '' } = req.body;
       const result = await AddressController.getInstance()._AddressService.create({
-        userId: '',
-        first_address: '',
-        second_address: '',
-        pincode: '',
+        userId,
+        first_address,
+        second_address,
+        pincode,
       });
       if (!result) {
         return next(SystemResponse.badRequestError('Unable to create', ''));

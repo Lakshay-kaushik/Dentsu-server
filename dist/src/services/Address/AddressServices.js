@@ -16,9 +16,9 @@ class AddressServices {
     }
     create(query) {
         return __awaiter(this, void 0, void 0, function* () {
-            const { first_address, second_address, pincode, } = query;
+            const { first_address, second_address, pincode, userId } = query;
             return yield this._AddressRepository.create({
-                first_address, second_address, pincode,
+                first_address, second_address, pincode, userId
             });
         });
     }

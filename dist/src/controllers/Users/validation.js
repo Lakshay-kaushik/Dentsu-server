@@ -23,6 +23,28 @@ exports.default = Object.freeze({
             type: 'Int',
             required: 'false',
         },
+        first_address: {
+            type: 'string',
+            errorMessage: 'address is wrong!',
+            in: ['body'],
+            required: true,
+            isLength: {
+                errorMessage: 'Name should be at least 25 chars long',
+                // Multiple options would be expressed as an array
+                options: { min: 25 },
+            },
+        },
+        second_address: {
+            type: 'string',
+            required: true,
+            in: ['body'],
+        },
+        pincode: {
+            type: 'Int',
+            required: true,
+            in: ['body'],
+            options: { min: 4, max: 7 }
+        },
     },
     update: {
         id: {

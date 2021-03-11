@@ -12,26 +12,28 @@ export default Object.freeze({
       errorMessage: 'Bad ID format',
       in: ['params'],
     },
-    address: {
-      first_address: {
+    first_address: {
+        type: 'string',
         errorMessage: 'address is wrong!',
         in: ['body'],
+        required: true,
         isLength: {
           errorMessage: 'Name should be at least 25 chars long',
           // Multiple options would be expressed as an array
           options: { min: 25 },
         },
       },
-      second_address: {
+    second_address: {
+        type: 'string',
         required: true,
         in: ['body'],
       },
-      pincode: {
+    pincode: {
+        type : 'Int',
         required: true,
         in: ['body'],
+        options: { min:4, max:7 }
       },
-
-    }
   },
   delete: {
     id: {

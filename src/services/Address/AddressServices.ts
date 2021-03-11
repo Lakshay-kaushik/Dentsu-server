@@ -9,9 +9,9 @@ class AddressServices {
     this._AddressRepository = new AddressRepository();
   }
   public async create(query): Promise<IAddress> {
-    const { first_address, second_address, pincode, } = query;
+    const { first_address, second_address, pincode, userId } = query;
     return await this._AddressRepository.create({
-      first_address, second_address, pincode,
+      first_address, second_address, pincode, userId
     });
   }
 
