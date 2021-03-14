@@ -54,6 +54,7 @@ class UserController {
                         userId: result.originalId
                     });
                 }
+                console.log(first_address);
                 if (!result) {
                     return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));
                 }

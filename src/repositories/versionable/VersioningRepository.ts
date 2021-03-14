@@ -31,6 +31,9 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
       _id: id,
       originalId: id,
     });
+    // console.log('options------>',options);
+    // const previousemail = await this.getById(options.email);
+    // console.debug('PREVIOUS_Email::::::::', JSON.stringify(previousemail));
     return await model.save();
   }
 

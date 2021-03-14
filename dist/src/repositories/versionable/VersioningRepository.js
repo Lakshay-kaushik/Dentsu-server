@@ -26,6 +26,9 @@ class VersioningRepository {
         return __awaiter(this, void 0, void 0, function* () {
             const id = VersioningRepository.generateObjectId();
             const model = new this.modelType(Object.assign(Object.assign({}, options), { _id: id, originalId: id }));
+            // console.log('options------>',options);
+            // const previousemail = await this.getById(options.email);
+            // console.debug('PREVIOUS_Email::::::::', JSON.stringify(previousemail));
             return yield model.save();
         });
     }

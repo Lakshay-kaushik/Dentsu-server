@@ -8,11 +8,11 @@ export default Object.freeze({
       type: 'string',
       errorMessage: 'name is wrong!',
       in: ['body'],
-      required: false,
+      required: true,
       isLength: {
-        errorMessage: 'Name invalid',
+        errorMessage: 'Name should contain 3 or more than 3 chararcter',
         // Multiple options would be expressed as an array
-        options: { min: 2 },
+        options: { min: 3 },
       },
     },
     email: {
@@ -22,9 +22,15 @@ export default Object.freeze({
       regex: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, `Please fill valid email address`],
       in: ['body'],
     },
+
     mobile_number: {
       type: 'Int',
       required: 'true',
+      isLength: {
+        errorMessage: 'Invalid mobile number',
+        // Multiple options would be expressed as an array
+        options: { min: 10 },
+      }
     },
     first_address: {
       type: 'string',
@@ -32,9 +38,9 @@ export default Object.freeze({
       in: ['body'],
       required: true,
       isLength: {
-        errorMessage: 'Name should be at least 25 chars long',
+        errorMessage: 'address should be at least 5 chars long',
         // Multiple options would be expressed as an array
-        options: { min: 25 },
+        options: { min: 5 },
       },
     },
     second_address: {
@@ -44,8 +50,8 @@ export default Object.freeze({
     },
     pincode: {
       type: 'Int',
-      required: true,
       in: ['body'],
+      required: true,
       isLength: {
         errorMessage: 'Invalid Pincode',
         // Multiple options would be expressed as an array
@@ -68,9 +74,9 @@ export default Object.freeze({
       errorMessage: 'Name is wrong!',
       in: ['body'],
       isLength: {
-        errorMessage: 'Name should be at least 25 chars long',
+        errorMessage: 'Name should be at least 5 chars long',
         // Multiple options would be expressed as an array
-        options: { min: 25 },
+        options: { min: 5 },
       },
     },
   },

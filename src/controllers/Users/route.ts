@@ -80,7 +80,7 @@ const router = Router();
  */
 router.route('/')
   .post(
-    validationHandler(validation.create),
+    validationHandler(validation.create as any),
     UserController.create,
   );
 

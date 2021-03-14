@@ -82,8 +82,8 @@ router.route('/:id')
  *           - pincode
  *           properties:
  *             userId:
- *              type: string
- *              example: 6049e03ee683a95d21c8524c
+ *               type: string
+ *               discription: userId of the user
  *             first_address:
  *               type: string
  *               example: E-1406,SG Grand, Sector-4
@@ -113,6 +113,6 @@ router.route('/:id')
  *                example: 954214
  */
 router.route('/')
-    .post(utilities_1.validationHandler(''), AddressController_1.default.create);
+    .post(utilities_1.validationHandler(validation_1.default.create), AddressController_1.default.create);
 exports.default = router;
 //# sourceMappingURL=route.js.map

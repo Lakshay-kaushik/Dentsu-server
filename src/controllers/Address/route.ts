@@ -87,8 +87,8 @@ router.route('/:id')
  *           - pincode
  *           properties:
  *             userId:
- *              type: string
- *              example: 6049e03ee683a95d21c8524c
+ *               type: string
+ *               discription: userId of the user
  *             first_address:
  *               type: string
  *               example: E-1406,SG Grand, Sector-4
@@ -119,7 +119,7 @@ router.route('/:id')
  */
 router.route('/')
   .post(
-    validationHandler(''),
+    validationHandler(validation.create),
     AddressController.create,
   );
 

@@ -19,20 +19,58 @@ exports.default = Object.freeze({
             in: ['body'],
             required: true,
             isLength: {
-                errorMessage: 'Name should be at least 25 chars long',
+                errorMessage: 'address should be at least 5 chars long',
                 // Multiple options would be expressed as an array
-                options: { min: 25 },
+                options: { min: 5 },
             },
         },
         second_address: {
             type: 'string',
             required: true,
             in: ['body'],
+            isLength: {
+                errorMessage: 'second address should be at least 5 chars long',
+                // Multiple options would be expressed as an array
+                options: { min: 5 },
+            },
         },
         pincode: {
             type: 'Int',
             required: true,
             in: ['body'],
+            isLength: {
+                errorMessage: 'Invalid Pincode',
+                // Multiple options would be expressed as an array
+                options: { min: 4 },
+            }
+        },
+    },
+    create: {
+        first_address: {
+            type: 'string',
+            errorMessage: 'address is wrong!',
+            in: ['body'],
+            required: true,
+            isLength: {
+                errorMessage: 'first address should be at least 5 chars long',
+                // Multiple options would be expressed as an array
+                options: { min: 5 },
+            },
+        },
+        second_address: {
+            type: 'string',
+            required: true,
+            in: ['body'],
+            isLength: {
+                errorMessage: 'second address should be at least 5 chars long',
+                // Multiple options would be expressed as an array
+                options: { min: 5 },
+            },
+        },
+        pincode: {
+            type: 'Int',
+            in: ['body'],
+            required: true,
             isLength: {
                 errorMessage: 'Invalid Pincode',
                 // Multiple options would be expressed as an array
