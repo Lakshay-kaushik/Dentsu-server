@@ -14,13 +14,22 @@ exports.default = Object.freeze({
                 // Multiple options would be expressed as an array
                 options: { min: 3 },
             },
+            custom: {
+                options: (name) => new RegExp(/^[A-Za-z]+$/).test(name),
+                errorMessage: 'enter name Alphabetically'
+            }
         },
         email: {
             type: 'string',
             errorMessage: "email is wrong!",
             required: true,
-            regex: [/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/, `Please fill valid email address`],
             in: ['body'],
+            custom: {
+                options: (email) => new RegExp(/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/).test(email),
+                errorMessage: `Please fill valid email address`
+                // match: (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/),
+                // errorMessage: `Please fill valid email address`,
+            }
         },
         mobile_number: {
             type: 'Int',

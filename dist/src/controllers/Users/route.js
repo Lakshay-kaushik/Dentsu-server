@@ -31,7 +31,7 @@ const router = express_1.Router();
  *           - pincode
  *           properties:
  *             first_name:
- *               type: string
+ *               type: character
  *               example: lakshay
  *               description: Email of the user
  *             last_name:
@@ -43,7 +43,7 @@ const router = express_1.Router();
  *               example: email@successive.tech
  *               description: Role of the user
  *             mobile_number:
- *               type: string
+ *               type: number
  *               example: 9997123123
  *               description: Password created by user
  *             first_address:
