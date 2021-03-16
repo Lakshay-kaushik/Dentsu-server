@@ -55,8 +55,11 @@ router.route('/')
  *         schema:
  *           $ref: '#/definitions/HomeObjectSuccess'
  */
-router.route('/:id')
-    .get(utilities_1.validationHandler(validation_1.default.get), HomeController_1.default.get);
+// router.route('/:id')
+//   .get(
+//     validationHandler(validation.get as any),
+//     homeController.get,
+//   );
 /**
  * @swagger
  * /homes:

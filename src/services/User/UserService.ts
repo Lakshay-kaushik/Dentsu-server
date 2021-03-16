@@ -18,9 +18,13 @@ class UserServices {
     return this._UserRepository.list({ limit, skip });
   }
 
-  public async get(query): Promise<IUser> {
-    const { id } = query;
-    return this._UserRepository.get({ id });
+  // public async get(query): Promise<IUser> {
+  //   const { id } = query;
+  //   return this._UserRepository.get({ id });
+  // }
+
+  public async getEmail(email): Promise<IUser> {
+    return this._UserRepository.getemail( email  );
   }
 
   public async createUser(query): Promise<IUser> {

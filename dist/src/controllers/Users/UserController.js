@@ -42,23 +42,38 @@ class UserController {
             console.log('IN create in controller');
             try {
                 const { first_name, last_name, email, mobile_number, first_address, second_address, pincode, } = req.body;
-                console.log(req.body.first_name);
-                let result;
-                result = yield UserController.getInstance()._UserService.createUser({
-                    first_name, last_name, email, mobile_number,
-                });
-                console.log('USER CREATED ', result.originalId);
-                if (result && result.originalId) {
-                    yield UserController.getInstance()._UserService.createAddress({
-                        first_address, second_address, pincode,
-                        userId: result.originalId
+                let emailresult = req.body.email;
+                let catchemail = yield UserController.getInstance()._UserService.getEmail(email);
+                // console.log('catch: ', catchemail[0].email, typeof(catchemail))
+                console.log('sended data', emailresult);
+                let ce = catchemail.email;
+                console.log('ce', ce);
+                // console.log('er', emailresult);
+                // console.log('result', emailresult === ce)
+                if (emailresult == ce) {
+                    console.log('inside if alreat registered');
+                    return next(utilities_1.SystemResponse.badRequestError('email already', ''));
+                }
+                else {
+                    console.log('inside else create new');
+                    console.log(req.body.first_name);
+                    let result;
+                    result = yield UserController.getInstance()._UserService.createUser({
+                        first_name, last_name, email, mobile_number,
                     });
+                    console.log('USER CREATED ', result.originalId);
+                    if (result && result.originalId) {
+                        yield UserController.getInstance()._UserService.createAddress({
+                            first_address, second_address, pincode,
+                            userId: result.originalId
+                        });
+                    }
+                    console.log(first_address);
+                    if (!result) {
+                        return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));
+                    }
+                    return res.send(utilities_1.SystemResponse.success('User created', result));
                 }
-                console.log(first_address);
-                if (!result) {
-                    return next(utilities_1.SystemResponse.badRequestError('Unable to create', ''));
-                }
-                return res.send(utilities_1.SystemResponse.success('User created', result));
             }
             catch (err) {
                 return next(err);

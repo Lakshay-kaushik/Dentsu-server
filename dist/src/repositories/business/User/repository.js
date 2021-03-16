@@ -44,6 +44,15 @@ class HomeRepository extends VersioningRepository_1.default {
             return _super.getById.call(this, query.id);
         });
     }
+    getemail(query) {
+        const _super = Object.create(null, {
+            getByQuery: { get: () => super.getByQuery }
+        });
+        return __awaiter(this, void 0, void 0, function* () {
+            console.debug('UserRepository - Get: ');
+            return yield _super.getByQuery.call(this, query.email);
+        });
+    }
     /**
      * Create new user
      * @property {string} firstname - The first name of user.

@@ -44,19 +44,19 @@ class HomeController {
    * Get home.
    * @property {string} id - Number of messages to be skipped.
    * @returns {IHome}
-   */
-  public async get(req, res, next): Promise<Nullable<IHome>> {
-    try {
-      const { id } = req.params;
-      const result = await HomeController.getInstance()._homeService.get({ id });
-      if (!result) {
-        return next(SystemResponse.badRequestError('Data not found', ''));
-      }
-      return res.send(SystemResponse.success('Home', result));
-    } catch (err) {
-      return next(err);
-    }
-  }
+  //  */
+  // public async get(req, res, next): Promise<Nullable<IHome>> {
+  //   try {
+  //     const { id } = req.params;
+  //     const result = await HomeController.getInstance()._homeService.get({ id });
+  //     if (!result) {
+  //       return next(SystemResponse.badRequestError('Data not found', ''));
+  //     }
+  //     return res.send(SystemResponse.success('Home', result));
+  //   } catch (err) {
+  //     return next(err);
+  //   }
+  // }
 
   /**
    * Create new home

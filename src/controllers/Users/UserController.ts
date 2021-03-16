@@ -2,6 +2,8 @@
 import { UserServices } from '../../services';
 import { SystemResponse } from '../../libs/utilities';
 import { IUser } from '../../entities';
+import Database from '../../libs/Database';
+import e from 'express';
 
 class UserController {
   public static getInstance() {
@@ -43,25 +45,40 @@ class UserController {
       const { first_name, last_name, email, mobile_number,
         first_address, second_address, pincode,
       } = req.body;
-      console.log(req.body.first_name);
-      let result;
-      result = await UserController.getInstance()._UserService.createUser({
-        first_name, last_name, email, mobile_number,
-      });
-      console.log('USER CREATED ', result.originalId);
-      if (result && result.originalId) {
-        await UserController.getInstance()._UserService.createAddress({
+      let emailresult = req.body.email
+      let catchemail = await UserController.getInstance()._UserService.getEmail(email);
+      // console.log('catch: ', catchemail[0].email, typeof(catchemail))
+      console.log('sended data', emailresult)
+      let ce = catchemail.email
+      console.log('ce', ce);
+      // console.log('er', emailresult);
+      // console.log('result', emailresult === ce)
+      if (emailresult == ce) {
+        console.log('inside if alreat registered')
+        return next(SystemResponse.badRequestError('email already', ''));
+      } else {
+        console.log('inside else create new')
 
-          first_address, second_address, pincode,
+        console.log(req.body.first_name);
+        let result;
+        result = await UserController.getInstance()._UserService.createUser({
+          first_name, last_name, email, mobile_number,
+        });
+        console.log('USER CREATED ', result.originalId);
+        if (result && result.originalId) {
+          await UserController.getInstance()._UserService.createAddress({
 
-          userId: result.originalId
-        })
+            first_address, second_address, pincode,
+
+            userId: result.originalId
+          })
+        }
+        console.log(first_address)
+        if (!result) {
+          return next(SystemResponse.badRequestError('Unable to create', ''));
+        }
+        return res.send(SystemResponse.success('User created', result));
       }
-      console.log(first_address)
-      if (!result) {
-        return next(SystemResponse.badRequestError('Unable to create', ''));
-      }
-      return res.send(SystemResponse.success('User created', result));
     } catch (err) {
       return next(err);
     }

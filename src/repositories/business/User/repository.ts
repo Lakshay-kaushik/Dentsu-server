@@ -34,6 +34,11 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
     console.debug('UserRepository - Get: ');
     return super.getById(query.id);
   }
+  public async getemail(query): Promise<Nullable<IUserModel>> {
+
+    console.debug('UserRepository - Get: ');
+    return await super.getByQuery(query.email);
+  }
 
   /**
    * Create new user

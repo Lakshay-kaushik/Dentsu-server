@@ -19,12 +19,10 @@ class HomeService {
             return this._homeRepository.list({ limit, skip });
         });
     }
-    get(query) {
-        return __awaiter(this, void 0, void 0, function* () {
-            const { id } = query;
-            return this._homeRepository.get({ id });
-        });
-    }
+    // public async get(query): Promise<IHome> {
+    //   const { id } = query;
+    //   return this._homeRepository.get({ id });
+    // }
     create(query) {
         return __awaiter(this, void 0, void 0, function* () {
             const { first_name, last_name, email, mobile_number, } = query;

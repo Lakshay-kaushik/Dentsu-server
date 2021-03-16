@@ -59,12 +59,12 @@ router.route('/')
  *         schema:
  *           $ref: '#/definitions/HomeObjectSuccess'
  */
-router.route('/:id')
-  .get(
-    validationHandler(validation.get as any),
-    homeController.get,
+// router.route('/:id')
+//   .get(
+//     validationHandler(validation.get as any),
+//     homeController.get,
 
-  );
+//   );
 
 /**
  * @swagger
