@@ -4,6 +4,7 @@ import VersioningRepository from '../../versionable/VersioningRepository';
 import { IQueryCreate, IQueryDelete, IQueryGet, IQueryList, IQueryUpdate } from '../home/entities';
 import IUserModel from './IModel';
 import { userModel } from './model';
+import emailresult from '../../../controllers/Users/UserController'
 
 export default class HomeRepository extends VersioningRepository<IUserModel,
   mongoose.Model<IUserModel>> {
@@ -34,10 +35,12 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
     console.debug('UserRepository - Get: ');
     return super.getById(query.id);
   }
-  public async getemail(query): Promise<Nullable<IUserModel>> {
-
+  public async getemail(query:any): Promise<Nullable<IUserModel>> {
+    console.log('inside repository',query)
     console.debug('UserRepository - Get: ');
+    return await super.getByQuery({email:query});
     return await super.getByQuery(query.email);
+    
   }
 
   /**

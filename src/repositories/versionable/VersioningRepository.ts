@@ -134,7 +134,9 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
   }
 
   protected getByQuery(query: any): DocumentQuery<D | null, D> {
+    console.debug('Versioning repo',query)
     return this.modelType.findOne(query);
+    // return this.modelType.findOne({email:query});
   }
 
   protected getById(originalId: string): any {
@@ -142,9 +144,9 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
     return this.modelType.findOne({ originalId });
   }
 
-  // protected async getByemail(email: string): Promise<any> {
-  //   console.log('inside version: ', email);
-  //   return await this.modelType.find({ email });
+  // protected async getByemail(query: string): Promise<any> {
+  //   console.log('inside version: ', query);
+  //   return await this.modelType.findOne({ query });
   // }
 
 

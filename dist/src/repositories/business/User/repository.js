@@ -49,7 +49,9 @@ class HomeRepository extends VersioningRepository_1.default {
             getByQuery: { get: () => super.getByQuery }
         });
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('inside repository', query);
             console.debug('UserRepository - Get: ');
+            return yield _super.getByQuery.call(this, { email: query });
             return yield _super.getByQuery.call(this, query.email);
         });
     }

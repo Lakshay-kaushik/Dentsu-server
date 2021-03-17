@@ -121,15 +121,17 @@ class VersioningRepository {
         return this.modelType.find(query, null, options);
     }
     getByQuery(query) {
+        console.debug('Versioning repo', query);
         return this.modelType.findOne(query);
+        // return this.modelType.findOne({email:query});
     }
     getById(originalId) {
         console.debug(originalId);
         return this.modelType.findOne({ originalId });
     }
-    // protected async getByemail(email: string): Promise<any> {
-    //   console.log('inside version: ', email);
-    //   return await this.modelType.find({ email });
+    // protected async getByemail(query: string): Promise<any> {
+    //   console.log('inside version: ', query);
+    //   return await this.modelType.findOne({ query });
     // }
     getByIds(ids) {
         return this.getAll({ originalId: { $in: ids } });

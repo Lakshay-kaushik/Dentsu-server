@@ -46,13 +46,15 @@ class UserController {
                 let catchemail = yield UserController.getInstance()._UserService.getEmail(email);
                 // console.log('catch: ', catchemail[0].email, typeof(catchemail))
                 console.log('sended data', emailresult);
+                // const { catchemail: {model:{_doc} }} = catchemail
+                console.log('catchemail', catchemail);
                 let ce = catchemail.email;
                 console.log('ce', ce);
                 // console.log('er', emailresult);
                 // console.log('result', emailresult === ce)
-                if (emailresult == ce) {
+                if (emailresult === ce) {
                     console.log('inside if alreat registered');
-                    return next(utilities_1.SystemResponse.badRequestError('email already', ''));
+                    return next(utilities_1.SystemResponse.badRequestError('email already registered', ''));
                 }
                 else {
                     console.log('inside else create new');

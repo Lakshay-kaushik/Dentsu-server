@@ -24,7 +24,9 @@ class UserServices {
   // }
 
   public async getEmail(email): Promise<IUser> {
-    return this._UserRepository.getemail( email  );
+    console.log('inside Userservice',email);
+    
+    return this._UserRepository.getemail( email );
   }
 
   public async createUser(query): Promise<IUser> {
