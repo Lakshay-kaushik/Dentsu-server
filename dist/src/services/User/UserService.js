@@ -28,7 +28,7 @@ class UserServices {
     getEmail(email) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('inside Userservice', email);
-            return this._UserRepository.getemail(email);
+            return yield this._UserRepository.getemail(email);
         });
     }
     createUser(query) {

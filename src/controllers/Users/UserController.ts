@@ -50,10 +50,8 @@ class UserController {
       console.log('sended data', emailresult)
       // const { catchemail: {model:{_doc} }} = catchemail
       console.log('catchemail',catchemail);
-      let ce = catchemail.email
+      let ce = catchemail  && catchemail.email
       console.log('ce', ce);
-      // console.log('er', emailresult);
-      // console.log('result', emailresult === ce)
       if (emailresult === ce) {
         console.log('inside if alreat registered')
         return next(SystemResponse.badRequestError('email already registered', ''));

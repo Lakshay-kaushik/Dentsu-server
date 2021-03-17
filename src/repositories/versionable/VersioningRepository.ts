@@ -144,11 +144,6 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
     return this.modelType.findOne({ originalId });
   }
 
-  // protected async getByemail(query: string): Promise<any> {
-  //   console.log('inside version: ', query);
-  //   return await this.modelType.findOne({ query });
-  // }
-
 
   protected getByIds(ids: string[]): DocumentQuery<D[], D> {
     return this.getAll({ originalId: { $in: ids } });

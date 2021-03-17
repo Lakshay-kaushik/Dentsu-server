@@ -39,7 +39,6 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
     console.log('inside repository',query)
     console.debug('UserRepository - Get: ');
     return await super.getByQuery({email:query});
-    return await super.getByQuery(query.email);
     
   }
 

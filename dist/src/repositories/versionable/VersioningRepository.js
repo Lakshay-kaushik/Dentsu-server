@@ -129,10 +129,6 @@ class VersioningRepository {
         console.debug(originalId);
         return this.modelType.findOne({ originalId });
     }
-    // protected async getByemail(query: string): Promise<any> {
-    //   console.log('inside version: ', query);
-    //   return await this.modelType.findOne({ query });
-    // }
     getByIds(ids) {
         return this.getAll({ originalId: { $in: ids } });
     }

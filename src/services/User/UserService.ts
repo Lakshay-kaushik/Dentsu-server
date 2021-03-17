@@ -26,7 +26,7 @@ class UserServices {
   public async getEmail(email): Promise<IUser> {
     console.log('inside Userservice',email);
     
-    return this._UserRepository.getemail( email );
+    return await this._UserRepository.getemail( email );
   }
 
   public async createUser(query): Promise<IUser> {
