@@ -41,7 +41,7 @@ exports.default = Object.freeze({
             isLength: {
                 errorMessage: 'Invalid Pincode',
                 // Multiple options would be expressed as an array
-                options: { min: 4 },
+                options: { min: 4, max: 6 },
             }
         },
     },

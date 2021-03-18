@@ -40,6 +40,7 @@ class HomeRepository extends VersioningRepository_1.default {
             getById: { get: () => super.getById }
         });
         return __awaiter(this, void 0, void 0, function* () {
+            console.log('data from repo', query);
             console.debug('UserRepository - Get: ');
             return _super.getById.call(this, query.id);
         });

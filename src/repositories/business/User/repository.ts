@@ -31,7 +31,7 @@ export default class HomeRepository extends VersioningRepository<IUserModel,
    * @returns {User}
    */
   public async get(query: IQueryGet): Promise<Nullable<IUserModel>> {
-
+    console.log('data from repo',query);
     console.debug('UserRepository - Get: ');
     return super.getById(query.id);
   }

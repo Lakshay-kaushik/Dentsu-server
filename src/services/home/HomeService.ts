@@ -14,10 +14,10 @@ class HomeService {
     return this._homeRepository.list({ limit, skip });
   }
 
-  // public async get(query): Promise<IHome> {
-  //   const { id } = query;
-  //   return this._homeRepository.get({ id });
-  // }
+  public async get(query): Promise<IHome> {
+    const { id } = query;
+    return this._homeRepository.get({ id });
+  }
 
   public async create(query): Promise<IHome> {
     const { first_name, last_name, email, mobile_number, } = query;

@@ -1,4 +1,4 @@
-// import { Nullable } from '../../libs/Nullable';
+import { Nullable } from '../../libs/Nullable';
 import { UserServices } from '../../services';
 import { SystemResponse } from '../../libs/utilities';
 import { IUser } from '../../entities';
@@ -21,13 +21,25 @@ class UserController {
     this._UserService = new UserServices();
   }
 
+
   /**
    * Get home list.
    * @property {number} skip - Number of messages to be skipped.
    * @property {number} limit - Limit number of messages to be returned.
-   * @returns {IUser[]}
+   * @returns {IHome[]}
    */
-
+   public async list(req, res, next): Promise<IUser[]> {
+    try {
+      const { limit, skip } = req.query;
+      const result = await UserController.getInstance()._UserService.list(limit, skip);
+      if (!result.length) {
+        return next(SystemResponse.badRequestError('Data not found', ''));
+      }
+      return res.send(SystemResponse.success('List of users', result));
+    } catch (err) {
+      return next(err);
+    }
+  }
 
   /**
    * Create new home
@@ -83,6 +95,20 @@ class UserController {
     }
   }
 
+
+  public async get(req, res, next): Promise<Nullable<IUser>> {
+    try {
+      const { id } = req.params;
+      const result = await UserController.getInstance()._UserService.get({id});
+      console.log('data from controller',id)
+      if (!result) {
+        return next(SystemResponse.badRequestError('Data not found', ''));
+      }
+      return res.send(SystemResponse.success('Users', result));
+    } catch (err) {
+      return next(err);
+    }
+  }
   // /**sss
   //  * Update the home
   //  * @param id {string} - The id of the home.

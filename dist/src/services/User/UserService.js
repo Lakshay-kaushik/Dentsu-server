@@ -21,10 +21,13 @@ class UserServices {
             return this._UserRepository.list({ limit, skip });
         });
     }
-    // public async get(query): Promise<IUser> {
-    //   const { id } = query;
-    //   return this._UserRepository.get({ id });
-    // }
+    get(query) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const { id } = query;
+            console.log('data from service', query);
+            return this._UserRepository.get({ id });
+        });
+    }
     getEmail(email) {
         return __awaiter(this, void 0, void 0, function* () {
             console.log('inside Userservice', email);

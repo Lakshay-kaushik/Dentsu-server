@@ -83,5 +83,32 @@ router.route('/')
     validationHandler(validation.create as any),
     UserController.create,
   );
-
+/**
+ * @swagger
+ * /homes/{id}:
+ *   get:
+ *     security:
+ *       - Bearer: []
+ *     tags:
+ *       - Home
+ *     description: Returns a Home
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: 'Unique id of Home'
+ *         type: string
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: A Home
+ *         schema:
+ *           $ref: '#/definitions/HomeObjectSuccess'
+ */
+router.route('/:id')
+  .get(
+    validationHandler(validation.get as any),
+    UserController.get,
+  )
+  
 export default router;

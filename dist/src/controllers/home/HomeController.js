@@ -48,18 +48,21 @@ class HomeController {
      * @property {string} id - Number of messages to be skipped.
      * @returns {IHome}
     //  */
-    // public async get(req, res, next): Promise<Nullable<IHome>> {
-    //   try {
-    //     const { id } = req.params;
-    //     const result = await HomeController.getInstance()._homeService.get({ id });
-    //     if (!result) {
-    //       return next(SystemResponse.badRequestError('Data not found', ''));
-    //     }
-    //     return res.send(SystemResponse.success('Home', result));
-    //   } catch (err) {
-    //     return next(err);
-    //   }
-    // }
+    get(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const { id } = req.params;
+                const result = yield HomeController.getInstance()._homeService.get({ id });
+                if (!result) {
+                    return next(utilities_1.SystemResponse.badRequestError('Data not found', ''));
+                }
+                return res.send(utilities_1.SystemResponse.success('Home', result));
+            }
+            catch (err) {
+                return next(err);
+            }
+        });
+    }
     /**
      * Create new home
      * @property {string} first_name - The first_name of hello world.

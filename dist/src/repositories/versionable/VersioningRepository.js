@@ -125,9 +125,9 @@ class VersioningRepository {
         return this.modelType.findOne(query);
         // return this.modelType.findOne({email:query});
     }
-    getById(originalId) {
-        console.debug(originalId);
-        return this.modelType.findOne({ originalId });
+    getById(id) {
+        console.debug(id);
+        return this.modelType.findOne({ originalId: id, deletedAt: null });
     }
     getByIds(ids) {
         return this.getAll({ originalId: { $in: ids } });

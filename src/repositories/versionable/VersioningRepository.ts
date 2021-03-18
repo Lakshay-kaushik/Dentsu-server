@@ -139,9 +139,9 @@ export default class VersioningRepository<D extends mongoose.Document, M extends
     // return this.modelType.findOne({email:query});
   }
 
-  protected getById(originalId: string): any {
-    console.debug(originalId);
-    return this.modelType.findOne({ originalId });
+  protected getById(id: string): any {
+    console.debug(id);
+    return this.modelType.findOne({ originalId: id, deletedAt: null });
   }
 
 

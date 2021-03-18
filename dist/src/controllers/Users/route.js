@@ -79,5 +79,29 @@ const router = express_1.Router();
  */
 router.route('/')
     .post(utilities_1.validationHandler(validation_1.default.create), UserController_1.default.create);
+/**
+ * @swagger
+ * /homes/{id}:
+ *   get:
+ *     security:
+ *       - Bearer: []
+ *     tags:
+ *       - Home
+ *     description: Returns a Home
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         description: 'Unique id of Home'
+ *         type: string
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: A Home
+ *         schema:
+ *           $ref: '#/definitions/HomeObjectSuccess'
+ */
+router.route('/:id')
+    .get(utilities_1.validationHandler(validation_1.default.get), UserController_1.default.get);
 exports.default = router;
 //# sourceMappingURL=route.js.map
